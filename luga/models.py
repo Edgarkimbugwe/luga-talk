@@ -17,6 +17,20 @@ class BlogPost(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on =models.DateTimeField(auto_now=True)
 
+
+    class Meta:
+        """
+        To order the blog posts, recent posts appear on top
+        """
+        ordering = ["-created_on"]
+    
+
+    def __str__(self):
+        """
+        To display the title and author of the blog posts to the admin panel
+        """
+        return f"{self.title} | written by {self.author}"
+
 class Comment(models.Model):
     post = models.ForeignKey(
         BlogPost, on_delete=models.CASCADE, related_name='comments')
@@ -26,3 +40,18 @@ class Comment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     approved = models.BooleanField(default=False)
+
+
+    class Meta:
+
+        """
+        To order the comments, recent comments appear on top
+        """
+        ordering = ["-created_on"]
+
+    def __str__(self):
+
+        """
+        To display the comment body and author of the comment on the amin panel
+        """
+        return f"Comment by {self.author} on {self.post}"
