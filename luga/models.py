@@ -20,7 +20,7 @@ class BlogPost(models.Model):
 
     class Meta:
         """
-        To order the blog posts, recent posts appear on top
+        To order blog posts, recent posts appear on top
         """
         ordering = ["-created_on"]
     
@@ -45,13 +45,13 @@ class Comment(models.Model):
     class Meta:
 
         """
-        To order the comments, recent comments appear on top
+        To order comments, recent comments appear on top
         """
         ordering = ["-created_on"]
 
     def __str__(self):
 
         """
-        To display the comment body and author of the comment on the amin panel
+        To display the comment body and author of a comment on the amin panel
         """
         return f"Comment by {self.author} on {self.post}"
