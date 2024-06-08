@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import BlogPost
 
@@ -12,3 +12,14 @@ class PostList(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['post_list'] = context['object_list']
         return context
+
+def blogpost_detail(request, slug):
+        """
+        Display an individual from
+
+        :template:`luga/post_detail.html`
+        """
+
+        queryset = BlogPost.objects.filter(status=1)
+        blogpost = get_object_or_404(queryset, slug=slug)
+        return render(request, "luga/blogpost_detail.html", {"blogpost": blogpost})

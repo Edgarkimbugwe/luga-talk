@@ -92,7 +92,7 @@ body {
     content: "";
     position: absolute;
     top: 0;
-    right: 90%;
+    right: 85%;
     height: 100%;
     width: 150%;
     background: #445261;
@@ -117,7 +117,7 @@ body {
     margin-left: 5%;
 }
 
-.post-subtitle {
+.blogpost-subtitle {
     margin-left: 5%;
     color: lightgray;
 }
