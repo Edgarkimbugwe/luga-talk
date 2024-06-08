@@ -102,17 +102,17 @@ body {
     z-index: 100;
 }
 
-.post-link {
+.blogpost-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-link:hover,
-.page-link {
+.blogpost-link:hover,
+.blogpage-link {
     color: #E84610;
 }
 
-.post-title {
+.blogpost-title {
     margin-top: 10%;
     margin-left: 5%;
 }
