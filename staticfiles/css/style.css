@@ -1,6 +1,4 @@
-body {
-    background-color: #F9FAFC;
-}
+
 
 .custom-padding-top {
     padding-top: 5rem;
@@ -37,7 +35,7 @@ body {
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #F1F1EA;
 }
 
 .card {
@@ -92,7 +90,7 @@ body {
     content: "";
     position: absolute;
     top: 0;
-    right: 90%;
+    right: 85%;
     height: 100%;
     width: 150%;
     background: #445261;
@@ -102,24 +100,24 @@ body {
     z-index: 100;
 }
 
-.post-link {
+.blogpost-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-link:hover,
-.page-link {
-    color: #E84610;
+.blogpost-link:hover,
+.blogpage-link {
+    color: #789262;
 }
 
-.post-title {
+.blogpost-title {
     margin-top: 10%;
     margin-left: 5%;
 }
 
-.post-subtitle {
+.blogpost-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    color: #CBC8B6;
 }
 
 .btn-signup,
