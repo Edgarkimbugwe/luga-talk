@@ -1,6 +1,4 @@
-body {
-    background-color: #F9FAFC;
-}
+
 
 .custom-padding-top {
     padding-top: 5rem;
@@ -37,7 +35,7 @@ body {
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #F1F1EA;
 }
 
 .card {
@@ -109,7 +107,7 @@ body {
 
 .blogpost-link:hover,
 .blogpage-link {
-    color: #E84610;
+    color: #789262;
 }
 
 .blogpost-title {
@@ -119,7 +117,7 @@ body {
 
 .blogpost-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    color: #CBC8B6;
 }
 
 .btn-signup,
