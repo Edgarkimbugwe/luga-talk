@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.views.generic import TemplateView
 from .models import BlogPost
 
 # Create your views here.
@@ -23,3 +24,7 @@ def blogpost_detail(request, slug):
         queryset = BlogPost.objects.filter(status=1)
         blogpost = get_object_or_404(queryset, slug=slug)
         return render(request, "luga/blogpost_detail.html", {"blogpost": blogpost})
+
+class AboutView(TemplateView):
+    template_name = 'luga/about.html'
+    extra_context = {'title': 'About'}
