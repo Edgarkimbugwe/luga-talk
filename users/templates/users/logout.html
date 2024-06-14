@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+{% block sidebar %}
+<!-- No sidebar on the about page -->
+{% endblock %}
+
+{% block content %}
+    <div class="content-section-login">
+        <h2>You have successfully logged out.</h2>
+        
+        <small class="text-muted">
+            <a href="{% url 'login' %}">Log In Again</a>
+        </small>
+    </div>
+{% endblock content %}
