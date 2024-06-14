@@ -58,6 +58,26 @@
     border: 1px solid #dddddd;
     border-radius: 8px;
     margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.content-section-register {
+    background: #ffffff;
+    padding: 8px 10px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 35px;
+}
+
+
+.content-section-sidebar {
+    background: #ffffff;
+    padding: 8px 10px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
 
 .image-flash {
