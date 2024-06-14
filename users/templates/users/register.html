@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+{% block sidebar %}
+<!-- No sidebar on the about page -->
+{% endblock %}
+
 {% block content %}
     <div class="content-section-register">
-        <form method="POST" class="col-md-8 mx-auto">
+        <form method="POST" class="col-md-12 mx-auto">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Join Our Blog Today!</legend>
