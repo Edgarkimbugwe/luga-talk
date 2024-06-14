@@ -99,7 +99,6 @@
     margin-right: auto;
 }
 
-
 .content-section-sidebar {
     background: #ffffff;
     padding: 8px 10px;
@@ -107,6 +106,15 @@
     border-radius: 8px;
     margin-bottom: 20px;
     margin-top: 20px;
+  }
+
+  .content-section-profile {
+    background: #ffffff;
+    padding: 8px 10px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-top: 35px;
   }
 
 .image-flash {
@@ -230,3 +238,14 @@
 .approval {
     color: rgb(222, 146, 168);
 }
+
+.account-img {
+    height: 100px;
+    width: 100px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .account-heading {
+    font-size: 2.5rem;
+  }
