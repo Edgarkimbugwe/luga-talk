@@ -13,7 +13,7 @@ def register(request):
                 f'Welcome { username }! Your account was created '
                 f'successfully! Please log in!'
             )
-            return redirect('home')
+            return redirect('login')
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
