@@ -10,8 +10,8 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(
                 request, 
-                f'Welcome { username }! Your account was successfully '
-                f'created! Please log in!'
+                f'Welcome { username }! Your account was created '
+                f'successfully! Please log in!'
             )
             return redirect('home')
     else:
