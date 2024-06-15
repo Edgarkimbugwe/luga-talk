@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic import TemplateView
 from .models import BlogPost
+from .forms import CommentForm
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -25,6 +26,7 @@ def blogpost_detail(request, slug):
         blogpost = get_object_or_404(queryset, slug=slug)
         comments = blogpost.comments.all().order_by("-created_on")
         comment_count = blogpost.comments.filter(approved=True).count()
+        comment_form = CommentForm()
         return render(
             request,
             "luga/blogpost_detail.html", 
@@ -32,6 +34,7 @@ def blogpost_detail(request, slug):
                 "blogpost": blogpost,
                 "comments": comments,
                 "comment_count": comment_count,
+                "comment_form": comment_form,
                 
             },
         )
