@@ -23,7 +23,18 @@ def blogpost_detail(request, slug):
 
         queryset = BlogPost.objects.filter(status=1)
         blogpost = get_object_or_404(queryset, slug=slug)
-        return render(request, "luga/blogpost_detail.html", {"blogpost": blogpost})
+        comments = blogpost.comments.all().order_by("-created_on")
+        comment_count = blogpost.comments.filter(approved=True).count()
+        return render(
+            request,
+            "luga/blogpost_detail.html", 
+            {
+                "blogpost": blogpost,
+                "comments": comments,
+                "comment_count": comment_count,
+                
+            },
+        )
 
 class AboutView(TemplateView):
     template_name = 'luga/about.html'
