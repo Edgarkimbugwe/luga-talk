@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib import messages
 from django.views.generic import TemplateView
 from .models import BlogPost
 from .forms import CommentForm
@@ -26,6 +27,20 @@ def blogpost_detail(request, slug):
         blogpost = get_object_or_404(queryset, slug=slug)
         comments = blogpost.comments.all().order_by("-created_on")
         comment_count = blogpost.comments.filter(approved=True).count()
+
+
+        if request.method == "POST":
+            comment_form = CommentForm(data=request.POST)
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                comment.author = request.user
+                comment.post = blogpost
+                comment.save()
+                messages.add_message(
+                    request, messages.SUCCESS,
+                    'Your comment has been submitted and is awaiting approval.'
+                )
+
         comment_form = CommentForm()
         return render(
             request,
