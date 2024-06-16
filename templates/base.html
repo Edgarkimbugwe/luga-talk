@@ -5,23 +5,23 @@
 <html class="h-100" lang="en">
 
 <head>
-    <title>Luga Talk</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Luga Talk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Google Fonts CSS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Carlito:wght@700&display=swap" rel="stylesheet">
+  <!-- Google Fonts CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Carlito:wght@700&display=swap" rel="stylesheet">
 
-    <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/c3c0f5e49e.js" crossorigin="anonymous"></script>
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/c3c0f5e49e.js" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 
@@ -147,6 +147,8 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
   </script>
 
+  {% block extras %}
+  {% endblock %}
 </body>
 
 </html>
