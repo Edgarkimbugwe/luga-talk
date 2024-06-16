@@ -1,1 +1,0 @@
-console.log("Life, What is it really?");
