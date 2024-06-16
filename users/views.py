@@ -1,7 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from luga.models import Comment
+from django.contrib.auth.models import User
+from django.contrib.auth import logout
 
 def register(request):
     if request.method == 'POST':
@@ -47,3 +50,22 @@ def profile(request):
 
     return render(request, 'users/profile.html', context)
 
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+        user = request.user
+
+        # Delete associated comments (example of related model deletion)
+        from luga.models import Comment  # Import Comment model here
+        Comment.objects.filter(author=user).delete()
+
+        # Delete the user account
+        user.delete()
+
+        # Logout the user after account deletion (optional)
+        logout(request)
+
+        messages.success(request, 'Your account has been deleted successfully.')
+        return redirect('home')  # Replace 'home' with your home page URL name
+
+    return render(request, 'users/delete_account.html', {'user': request.user})
