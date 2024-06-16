@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
-from .models import BlogPost
+from .models import BlogPost, Comment
 from .forms import CommentForm
 
 # Create your views here.
