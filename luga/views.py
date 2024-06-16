@@ -61,22 +61,22 @@ def comment_edit(request, slug, comment_id):
     """
     if request.method == "POST":
 
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+        queryset = BlogPost.objects.filter(status=1)
+        blogpost = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
 
         if comment_form.is_valid() and comment.author == request.user:
             comment = comment_form.save(commit=False)
-            comment.post = post
+            comment.post = blogpost
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.add_message(request, messages.SUCCESS, 'Comment has been updated! successfully')
         else:
             messages.add_message(request, messages.ERROR,
                                  'Error updating comment!')
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('blogpost_detail', args=[slug]))
 
 
 class AboutView(TemplateView):
