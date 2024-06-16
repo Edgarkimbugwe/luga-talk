@@ -64,6 +64,7 @@
                     {% endif %}
                     {% if user.is_authenticated and comment.author == user %}
                     <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+                    <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
                     {% endif %}
                 </div>
                 <!-- Our for loop ends here -->
@@ -93,6 +94,27 @@
     </div>
 </div>
 
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete your comment? This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
 
 {% block extras %}
@@ -102,6 +124,11 @@
     const commentForm = document.getElementById("commentForm");
     const submitButton = document.getElementById("submitButton");
     const slug = "{{ blogpost.slug }}"; // Pass the slug from Django template
+
+    const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
+    const deleteButtons = document.getElementsByClassName("btn-delete");
+    const deleteConfirm = document.getElementById("deleteConfirm");
+    
 
     // Attach click event listeners to all edit buttons
     for (let button of editButtons) {
@@ -117,6 +144,15 @@
             submitButton.innerText = "Update";
             // Set the form action to the edit comment URL with the comment ID
             commentForm.setAttribute("action", `/${slug}/edit_comment/${commentId}`);
+        });
+    }
+
+    for (let button of deleteButtons) {
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+            let commentId = e.target.getAttribute("data-comment_id");
+            deleteConfirm.href = `/${slug}/delete_comment/${commentId}`;
+            deleteModal.show();
         });
     }
 </script>

@@ -71,10 +71,26 @@ def comment_edit(request, slug, comment_id):
             comment.post = blogpost
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment has been updated! successfully')
+            messages.add_message(request, messages.SUCCESS, 'Comment has been updated! successfully.')
         else:
             messages.add_message(request, messages.ERROR,
                                  'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('blogpost_detail', args=[slug]))
+
+def comment_delete(request, slug, comment_id):
+    """
+    view to delete comment
+    """
+    queryset = BlogPost.objects.filter(status=1)
+    blogpost = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.success(request, 'Comment deleted successfully.')
+    else:
+        messages.error(request, 'You are not authorized to delete this comment.')
 
     return HttpResponseRedirect(reverse('blogpost_detail', args=[slug]))
 
