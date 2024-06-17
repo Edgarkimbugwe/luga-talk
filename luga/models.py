@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
@@ -12,7 +13,7 @@ class BlogPost(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='luga_posts'
     )
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField('image', default='placeholder', blank=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
@@ -32,6 +33,11 @@ class BlogPost(models.Model):
         To display the title and author of the blog posts to the admin panel
         """
         return f"{self.title} | written by {self.author}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 class Comment(models.Model):
     post = models.ForeignKey(

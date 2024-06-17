@@ -1,10 +1,13 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
 from .models import BlogPost, Comment
-from .forms import CommentForm
+from .forms import CommentForm, BlogPostForm
+
+STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -93,6 +96,23 @@ def comment_delete(request, slug, comment_id):
         messages.error(request, 'You are not authorized to delete this comment.')
 
     return HttpResponseRedirect(reverse('blogpost_detail', args=[slug]))
+
+
+@login_required
+def create_blogpost(request):
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            blog_post = form.save(commit=False)
+            blog_post.author = request.user
+            blog_post.status = 0
+            blog_post.save()
+            messages.success(request, 'Your blog post has been created and is pending approval')
+            return redirect('home') 
+    else:
+        form = BlogPostForm()
+    
+    return render(request, 'luga/create_blogpost.html', {'form': form})
 
 
 class AboutView(TemplateView):
