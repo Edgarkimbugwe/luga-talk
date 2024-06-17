@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
-from .models import BlogPost, Comment
+from .models import BlogPost, Comment, Like
 from .forms import CommentForm, BlogPostForm
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -118,3 +118,19 @@ def create_blogpost(request):
 class AboutView(TemplateView):
     template_name = 'luga/about.html'
     extra_context = {'title': 'About'}
+
+#function that will retrieve the blog posts created by the logged-in user
+@login_required
+def user_blogposts(request):
+    blogposts = BlogPost.objects.filter(author=request.user)
+    return render(request, 'luga/user_blogposts.html', {'blogposts': blogposts})
+
+
+@login_required
+def like_blogpost(request, post_id):
+    post = get_object_or_404(BlogPost, id=post_id)
+    like, created = Like.objects.get_or_create(post=post, user=request.user)
+    if not created:
+        like.liked = not like.liked
+        like.save()
+    return redirect('blogpost_detail', slug=post.slug)

@@ -63,3 +63,11 @@ class Comment(models.Model):
         To display the comment body and author of a comment on the amin panel
         """
         return f"Comment by {self.author} on {self.post}"
+
+class Like(models.Model):
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='likes')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    liked = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"Like on {self.post.title} by {self.user.username}"

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-section-profile">
+
+    <h1>My Blog Posts</h1>
+    <ul>
+    {% for blogpost in blogposts %}
+        <li>
+        <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
+        </li>
+    {% empty %}
+        <li>No blog posts yet!</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Favourite Blog Posts</h2>
+    <ul>
+    {% for like in user.likes.all %}
+        <li>
+        <a href="{% url 'blogpost_detail' like.post.slug %}">{{ like.post.title }}</a>
+        </li>
+    {% empty %}
+        <li>No favourite blog posts yet!</li>
+    {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock content %}
