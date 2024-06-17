@@ -150,3 +150,12 @@ def blogpost_edit(request, slug):
     else:
         form = BlogPostForm(instance=blogpost)
     return render(request, 'luga/blogpost_edit.html', {'form': form, 'blogpost': blogpost})
+
+@login_required
+def blogpost_delete(request, slug):
+    blogpost = get_object_or_404(BlogPost, slug=slug, author=request.user)
+    if request.method == "POST":
+        blogpost.delete()
+        messages.success(request, 'Blog post deleted successfully.')
+        return redirect('profile')
+    return render(request, 'luga/blogpost_delete.html', {'blogpost': blogpost})
