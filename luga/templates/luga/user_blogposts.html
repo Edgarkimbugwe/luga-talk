@@ -7,7 +7,11 @@
     <ul>
     {% for blogpost in blogposts %}
         <li>
-        <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
+        <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a> 
+        &nbsp;| &nbsp;
+        {% if user == blogpost.author %}
+        <a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
+        {% endif %} 
         </li>
     {% empty %}
         <li>No blog posts yet!</li>
