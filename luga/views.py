@@ -134,3 +134,19 @@ def like_blogpost(request, post_id):
         like.liked = not like.liked
         like.save()
     return redirect('blogpost_detail', slug=post.slug)
+
+
+@login_required
+def blogpost_edit(request, slug):
+    blogpost = get_object_or_404(BlogPost, slug=slug, author=request.user)
+    if request.method == "POST":
+        form = BlogPostForm(request.POST, request.FILES, instance=blogpost)
+        if form.is_valid():
+            blogpost = form.save(commit=False)
+            blogpost.author = request.user
+            blogpost.save()
+            messages.success(request, 'Blog post updated successfully.')
+            return redirect('blogpost_detail', slug=slug)
+    else:
+        form = BlogPostForm(instance=blogpost)
+    return render(request, 'luga/blogpost_edit.html', {'form': form, 'blogpost': blogpost})
