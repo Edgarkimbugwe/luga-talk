@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
 <div class="content-section-profile">
 
@@ -11,6 +12,8 @@
         &nbsp;| &nbsp;
         {% if user == blogpost.author %}
         <a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
+        &nbsp;| &nbsp;
+        <a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
         {% endif %} 
         </li>
     {% empty %}
@@ -22,7 +25,7 @@
     <ul>
     {% for like in user.likes.all %}
         <li>
-        <a href="{% url 'blogpost_detail' like.post.slug %}">{{ like.post.title }}</a>
+        <a href="{% url 'blogpost_detail' like.blogpost.slug %}">{{ like.blogpost.title }}</a>
         </li>
     {% empty %}
         <li>No favourite blog posts yet!</li>
