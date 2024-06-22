@@ -130,7 +130,7 @@ def user_blogposts(request):
 def like_blogpost(request, post_id):
     blogpost = get_object_or_404(BlogPost, id=post_id)
     if blogpost.author == request.user:
-        messages.error(request, 'You cannot like your own blog post!')
+        messages.warning(request, 'You cannot like your own blog post!')
         return redirect('blogpost_detail', slug=blogpost.slug)
     like, created = Like.objects.get_or_create(post=blogpost, user=request.user)
     if created:
