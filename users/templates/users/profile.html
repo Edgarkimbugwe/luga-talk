@@ -2,17 +2,26 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="content-section-profile">
-      <div class="media">
-        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-        <div class="media-body">
-            <h2 class="account-heading">{{ user.first_name }} {{ user.last_name }}</h2>
-          <p class="text-secondary">{{ user.email }}</p>
+    <div class="content-section content-section-profile">
+      <br>
+      <div class="row">
+        <div class = "col-md-2">
+          <div class="media">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+          </div>
+        </div>
+        <div class = "col-md-10">
+          <div class="media-body">
+              <h2 class="account-heading">{{ user.first_name }} {{ user.last_name }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+            <a href="{% url 'user_blogposts' %}" class="btn btn-primary">My Blog Posts</a>
+          </div>
         </div>
       </div>
+      <br>
 
       <!-- Profile Form -->
-      <form method="POST" enctype="multipart/form-data">
+      <form method="POST" enctype="multipart/form-data center">
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Profile Information</legend>
@@ -27,7 +36,6 @@
       <!-- Delete Account Link -->
       <div class="text-center mt-4">
         <a href="{% url 'delete_account' %}" class="btn btn-danger">Delete Account</a>
-        <a href="{% url 'user_blogposts' %}" class="btn btn-primary">My Blog Posts</a>
     </div>
     </div>
 {% endblock content %}
