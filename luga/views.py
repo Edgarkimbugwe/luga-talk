@@ -123,7 +123,11 @@ class AboutView(TemplateView):
 @login_required
 def user_blogposts(request):
     blogposts = BlogPost.objects.filter(author=request.user)
-    return render(request, 'luga/user_blogposts.html', {'blogposts': blogposts})
+    liked_posts = Like.objects.filter(user=request.user, liked=True).select_related('post')
+    return render(request, 'luga/user_blogposts.html', {
+        'blogposts': blogposts,
+        'liked_posts': [like.post for like in liked_posts],
+    })
 
 
 @login_required
@@ -133,10 +137,7 @@ def like_blogpost(request, post_id):
         messages.warning(request, 'You cannot like your own blog post!')
         return redirect('blogpost_detail', slug=blogpost.slug)
     like, created = Like.objects.get_or_create(post=blogpost, user=request.user)
-    if created:
-        like.liked = True
-    else:
-        like.liked = not like.liked
+    like.liked = not like.liked
     like.save()
     return redirect('blogpost_detail', slug=blogpost.slug)
 

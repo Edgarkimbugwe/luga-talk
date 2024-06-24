@@ -16,6 +16,7 @@
         <a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
         {% endif %} 
         </li>
+        <br>
     {% empty %}
         <li>No blog posts yet!</li>
     {% endfor %}
@@ -23,10 +24,13 @@
 
     <h2>Favourite Blog Posts</h2>
     <ul>
-    {% for like in user.likes.all %}
+    {% for blogpost in liked_posts %}
         <li>
-        <a href="{% url 'blogpost_detail' like.blogpost.slug %}">{{ like.blogpost.title }}</a>
+        <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
+        &nbsp;| &nbsp; By:
+        {{ blogpost.author }}
         </li>
+        <br>
     {% empty %}
         <li>No favourite blog posts yet!</li>
     {% endfor %}
