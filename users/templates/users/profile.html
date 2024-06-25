@@ -5,16 +5,16 @@
     <div class="content-section content-section-profile">
       <br>
       <div class="row">
-        <div class = "col-md-2">
+        <div class = "col-md-3">
           <div class="media">
             <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
           </div>
         </div>
-        <div class = "col-md-10">
+        <div class = "col-md-9">
           <div class="media-body">
               <h2 class="account-heading">{{ user.first_name }} {{ user.last_name }}</h2>
             <p class="text-secondary">{{ user.email }}</p>
-            <a href="{% url 'user_blogposts' %}" class="btn btn-primary">My Blog Posts</a>
+            <a href="{% url 'user_blogposts' %}" class="btn btn-outline-secondary">My Blog Posts</a>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
             {{ profile_form|crispy }}
         </fieldset>
         <div class="form-group text-center">
-            <button class="btn btn-outline-info" type="submit">Update Profile</button>
+            <button class="btn btn-outline-secondary" type="submit">Update Profile</button>
         </div>
       </form>
 

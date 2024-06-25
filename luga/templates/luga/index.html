@@ -11,10 +11,10 @@
             <div class="row">
                 {% for blogpost in post_list %}
                 <div class="col-md-12 content-section">
-                    <div class="card mb-4">
+                    <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="image-container">
                                         {% if "placeholder" in blogpost.featured_image.url %}
                                         <img class="card-img-top" src="{% static '/images/books2.jpg' %}"alt="placeholder image">
@@ -26,7 +26,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <a href="{% url 'blogpost_detail' blogpost.slug %}" class="blogpost-link">
                                         <h2 class="card-title">{{ blogpost.title }}</h2>
                                     </a>

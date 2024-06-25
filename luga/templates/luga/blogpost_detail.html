@@ -50,9 +50,9 @@
                 {% for comment in comments %}
                 <div
                     class="p-2 comments{% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
-                    <p class="font-weight-bold">
+                    <p class="fw-bold">
                         {{ comment.author }}
-                        <span class="font-weight-normal">
+                        <span class="fw-normal">
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
@@ -87,7 +87,7 @@
                     class="btn btn-signup btn-lg">Submit</button>
                 </form>
                 {% else %}
-                <p>Log in to leave a comment</p>
+                <p><a href="{% url 'login' %}">Log in</a> to leave a comment</p>
                 {% endif %}
             </div>
       </div>

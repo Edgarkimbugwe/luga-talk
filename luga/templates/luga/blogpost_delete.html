@@ -3,11 +3,18 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<br>
+<br>
+<br>
+<div class="card-body text-center">
   <h1>Delete Blog Post</h1>
-  <p>Are you sure you want to delete "{{ blogpost.title }}"?</p>
+  <br>
+  <p>Are you sure you want to delete <strong>"{{ blogpost.title }}"?</strong></p>
+  <br>
   <form method="post">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Delete</button>
     <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
   </form>
+</div>
 {% endblock %}

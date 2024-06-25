@@ -8,11 +8,12 @@
 {% endblock %}
 
 {% block content %}
-    <div class="content-section-login">
-        <h2>You have successfully logged out.</h2>
-        
+   
+    <div class="content-section content-section-logout text-center">
+        <h2>You have successfully been logged out.</h2>
+        <br>
         <small class="text-muted">
-            <a href="{% url 'login' %}">Log In Again</a> | <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'login' %}">Login Again</a> | <a href="{% url 'home' %}">Home</a>
         </small>
     </div>
 {% endblock content %}

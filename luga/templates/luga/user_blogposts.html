@@ -9,10 +9,10 @@
     {% for blogpost in blogposts %}
         <li>
         <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a> 
-        &nbsp;| &nbsp;
+        &nbsp;|
         {% if user == blogpost.author %}
         <a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
-        &nbsp;| &nbsp;
+        &nbsp;|
         <a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
         {% endif %} 
         </li>
@@ -27,7 +27,7 @@
     {% for blogpost in liked_posts %}
         <li>
         <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
-        &nbsp;| &nbsp; By:
+        &nbsp;| By:
         {{ blogpost.author }}
         </li>
         <br>
