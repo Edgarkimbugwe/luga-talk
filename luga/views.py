@@ -165,3 +165,7 @@ def blogpost_delete(request, slug):
         messages.success(request, 'Blog post deleted successfully.')
         return redirect('user_blogposts')
     return render(request, 'luga/blogpost_delete.html', {'blogpost': blogpost})
+
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
