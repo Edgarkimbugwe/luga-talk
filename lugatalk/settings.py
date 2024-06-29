@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-edgarkimbugwe-lugatalk-nkn7k2rlz18.ws-eu114.gitpod.io',
+    '8000-edgarkimbugwe-lugatalk-j66uhktsk84.ws.codeinstitute-ide.net',
     '.herokuapp.com'
 ]
 
@@ -101,7 +101,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://8000-edgarkimbugwe-lugatalk-nkn7k2rlz18.ws-eu114.gitpod.io",
+    "https://8000-edgarkimbugwe-lugatalk-j66uhktsk84.ws.codeinstitute-ide.net",
     "https://https://lugatalk-ab90580d7f17.herokuapp.com/"
 ]
 
