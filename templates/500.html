@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block sidebar %}
+<!-- No sidebar on the 500 page -->
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="content-section text-center">
+
+    <h1>500 - Internal Server Error</h1>
+    <p>Oops! Something went wrong on our end. Please try again later.</p>
+    <a href="{% url 'home' %}">Go to Homepage</a>
+    
+</div>
+{% endblock %}

@@ -8,7 +8,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
 from users.views import delete_account
-from luga.views import custom_404
+from luga.views import custom_404, custom_500
 
 
 urlpatterns = [
@@ -28,3 +28,4 @@ if settings.DEBUG:
 
 # Custom error handlers
 handler404 = custom_404
+handler500 = custom_500

@@ -1,8 +1,11 @@
 from . import views
 from django.urls import path
 from .views import AboutView, create_blogpost
+#from .views import test_500
+
 
 urlpatterns = [
+    #path('test-500/', test_500),
     path('', views.PostList.as_view(), name='home'),
     path('about/', AboutView.as_view(), name='about'),
     path('create/', create_blogpost, name='create-blogpost'),
