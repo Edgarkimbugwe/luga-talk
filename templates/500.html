@@ -7,18 +7,13 @@
 {% endblock %}
 
 {% block content %}
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="container mt-5 pt-5 d-flex justify-content-center align-items-center">
+    <div class="content-section mt-5 col-md-10 p-4 rounded text-center ms-auto" id="about-box">
 
+        <h1>500 - Internal Server Error</h1>
+        <p>Oops! Something went wrong on our end. Please try again later.</p>
+        <a href="{% url 'home' %}">Go to Homepage</a>
 
-<div class="content-section text-center">
-
-    <h1>500 - Internal Server Error</h1>
-    <p>Oops! Something went wrong on our end. Please try again later.</p>
-    <a href="{% url 'home' %}">Go to Homepage</a>
-    
+    </div>
 </div>
 {% endblock %}
