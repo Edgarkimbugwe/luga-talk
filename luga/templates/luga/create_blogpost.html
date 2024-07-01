@@ -2,7 +2,6 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
 {% block head %}
     <!-- Summernote CSS -->
     <link href="{% static 'django_summernote/summernote-bs4.min.css' %}" rel="stylesheet">
@@ -12,17 +11,34 @@
 {% endblock head %}
 
 {% block content %}
-    <div class="content-section">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Create a New Blog Post</legend>
-                <p>(Kindly upload a landscape image)</p>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group text-center">
-                <button class="btn btn-outline-info" type="submit">Create Post</button>
-            </div>
-        </form>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="form-content-section col-lg-8 col-md-10 col-sm-10 p-4 rounded">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Create a New Blog Post</legend>
+                    <p>(Kindly upload a landscape image)</p>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Create Post</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.summernote').summernote({
+            height: 300,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null,             // set maximum height of editor
+            focus: true,                 // set focus to editable area after initializing summernote
+            width: '100%'                // set width to 100% to ensure responsiveness
+        });
+    });
+</script>
+
 {% endblock content %}

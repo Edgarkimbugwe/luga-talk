@@ -10,9 +10,11 @@ class CommentForm(forms.ModelForm):
 class BlogPostForm(forms.ModelForm):
     class Meta:
         model = BlogPost
-        fields = ['title', 'featured_image', 'content', 'excerpt',]
+        fields = ['title', 'featured_image', 'excerpt', 'content']
+        widgets = {
+            'content': SummernoteWidget(attrs={'class': 'summernote'}),
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['featured_image'].required = False
-        self.fields['content'].widget = SummernoteWidget()
