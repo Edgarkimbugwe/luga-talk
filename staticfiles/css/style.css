@@ -28,54 +28,10 @@
     margin-bottom: 20px;
 }
 
-/* Specific variations */
-.content-section-register,
-.content-section-login,
-.content-section-about {
-    margin-top: 20px;
-}
-
-.content-section-logout {
-    margin-top: 15%;
-    max-width: 60%;
-    margin-left: 28%;
-    padding-top: 15px;
-}
-
-.content-section-register,
-.content-section-login {
-    max-width: 30%;
-    margin-left: 46%;
-}
-
-.content-section-register {
-    margin-right: auto;
-}
-
-.content-section-login {
-    margin-top: 8%;
-    margin-right: 8.33333%;
-}
-
-.content-section-about {
-    text-align: center;
-    padding: 8px 25px 15px 25px;
-    max-width: 70%;
-    margin-left: 27%;
-    margin-right: auto;
-}
-
-/* Sidebar variation */
 .content-section-sidebar {
     margin-top: 20px;
 }
 
-/* Profile variation */
-.content-section-profile {
-    margin-top: 20px;
-    max-width: 60%;
-    margin-left: 28%;
-}
 
 .image-flash {
     position: absolute;
@@ -97,7 +53,7 @@
 }
 
 .masthead {
-    margin-top: 20px;
+    margin-top: 3px;
     overflow: hidden;
     position: relative;
     display: inline-block;
