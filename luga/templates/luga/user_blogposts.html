@@ -2,40 +2,43 @@
 
 
 {% block content %}
-<div class="content-section content-section-profile">
-
-    <h1>My Blog Posts</h1>
-    <ul>
-    {% for blogpost in blogposts %}
-        <li>
-        <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a> 
-        &nbsp;|
-        {% if user == blogpost.author %}
-        <a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
-        &nbsp;|
-        <a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
-        {% endif %} 
-        </li>
+<div class="container mt-4 d-flex justify-content-center align-items-center">
+    <div class="content-section col-md-8 p-4 rounded">
+		<h1>My Blog Posts</h1>
         <br>
-    {% empty %}
-        <li>No blog posts yet!</li>
-    {% endfor %}
-    </ul>
+		<ul>
+		{% for blogpost in blogposts %}
+			<li>
+			<a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a> 
+			&nbsp;|
+			{% if user == blogpost.author %}
+			<a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
+			&nbsp;|
+			<a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
+			{% endif %} 
+			</li>
+			<br>
+		{% empty %}
+			<li>No blog posts yet!</li>
+		{% endfor %}
+		</ul>
 
-    <h2>Favourite Blog Posts</h2>
-    <ul>
-    {% for blogpost in liked_posts %}
-        <li>
-        <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
-        &nbsp;| By:
-        {{ blogpost.author }}
-        </li>
+		<h2>Favourite Blog Posts</h2>
         <br>
-    {% empty %}
-        <li>No favourite blog posts yet!</li>
-    {% endfor %}
-    </ul>
+		<ul>
+		{% for blogpost in liked_posts %}
+			<li>
+			<a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
+			&nbsp;| By:
+			{{ blogpost.author }}
+			</li>
+			<br>
+		{% empty %}
+			<li>No favourite blog posts yet!</li>
+		{% endfor %}
+		</ul>
 
+	</div>
 </div>
 
 {% endblock content %}
