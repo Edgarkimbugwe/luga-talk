@@ -27,12 +27,15 @@
                                     </div>
                                 </div>
                                 <div class="col-md-9">
-                                    <a href="{% url 'blogpost_detail' blogpost.slug %}" class="blogpost-link">
-                                        <h2 class="card-title">{{ blogpost.title }}</h2>
-                                    </a>
+                                    <h2 class="card-title">{{ blogpost.title }}</h2>
                                     <p class="card-text">{{ blogpost.excerpt }}</p>
                                     <hr>
-                                    <p class="card-text text-muted h6">{{ blogpost.created_on}}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="card-text text-muted h6 mb-0">{{ blogpost.created_on }}</p>
+                                        <a href="{% url 'blogpost_detail' blogpost.slug %}" class="btn btn-outline-secondary">
+                                            Read More <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
