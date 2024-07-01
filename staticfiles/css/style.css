@@ -20,12 +20,37 @@
 }
 
 /* Base class for common styles */
-.content-section {
+.content-section,
+.form-content-section {
     background: #ffffff;
     padding: 8px 8px;
     border: 1px solid #dddddd;
     border-radius: 8px;
     margin-bottom: 20px;
+}
+
+/* Ensure the form content section is responsive */
+.form-content-section {
+    width: 75%;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+/* Make the summernote editor responsive */
+.note-editor {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.note-editing-area .note-editable {
+    word-wrap: break-word;
+    width: 100%;
+    overflow: auto;
+}
+
+/* Ensure all form elements are 100% wide */
+.form-control {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .content-section-sidebar {
@@ -166,3 +191,14 @@
   .account-heading {
     font-size: 2.5rem;
   }
+
+  @media (max-width: 1380px) {
+    .form-content-section {
+        padding: 8px;
+    }
+
+    #id_content_iframe {
+        width: 100%;
+    }
+}
+
