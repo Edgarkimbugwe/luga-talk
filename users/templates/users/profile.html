@@ -2,40 +2,45 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div class="content-section">
-      <br>
-      <div class="row">
-        <div class = "col-md-3">
-          <div class="media">
-            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
-          </div>
-        </div>
-        <div class = "col-md-9">
-          <div class="media-body">
-              <h2 class="account-heading">{{ user.first_name }} {{ user.last_name }}</h2>
-            <p class="text-secondary">{{ user.email }}</p>
-            <a href="{% url 'user_blogposts' %}" class="btn btn-outline-secondary">My Blog Posts</a>
-          </div>
-        </div>
-      </div>
-      <br>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <div class="content-section p-4 rounded">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="media">
+                            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="media-body">
+                            <h2 class="account-heading">{{ user.first_name }} {{ user.last_name }}</h2>
+                            <p class="text-secondary">{{ user.email }}</p>
+                            <a href="{% url 'user_blogposts' %}" class="btn btn-outline-secondary">My Blog Posts</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
 
-      <!-- Profile Form -->
-      <form method="POST" enctype="multipart/form-data center">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Profile Information</legend>
-            {{ user_form|crispy }}
-            {{ profile_form|crispy }}
-        </fieldset>
-        <div class="form-group text-center">
-            <button class="btn btn-outline-secondary" type="submit">Update Profile</button>
-        </div>
-      </form>
+                <!-- Profile Form -->
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Profile Information</legend>
+                        {{ user_form|crispy }}
+                        {{ profile_form|crispy }}
+                    </fieldset>
+                    <div class="form-group text-center">
+                        <button class="btn btn-outline-secondary" type="submit">Update Profile</button>
+                    </div>
+                </form>
 
-      <!-- Delete Account Link -->
-      <div class="text-center mt-4">
-        <a href="{% url 'delete_account' %}" class="btn btn-danger">Delete Account</a>
+                <!-- Delete Account Link -->
+                <div class="text-center mt-4">
+                    <a href="{% url 'delete_account' %}" class="btn btn-danger">Delete Account</a>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
+</div>
 {% endblock content %}
