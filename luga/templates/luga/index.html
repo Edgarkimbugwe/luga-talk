@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <div class="image-container">
                                         {% if "placeholder" in blogpost.featured_image.url %}
                                         <img class="card-img-top" src="{% static '/images/books2.jpg' %}"alt="placeholder image">
@@ -26,7 +26,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-9">
+                                <div class="col-md-8">
                                     <h2 class="card-title">{{ blogpost.title }}</h2>
                                     <p class="card-text">{{ blogpost.excerpt }}</p>
                                     <hr>

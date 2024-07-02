@@ -3,22 +3,20 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="blogpost-title">{{ blogpost.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="blogpost-subtitle">{{ blogpost.author }} | {{ blogpost.created_on }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                {% if "placeholder" in blogpost.featured_image.url %} 
-                <img class="card-img-top" src="{% static 'images/books2.jpg' %}" alt="placeholder image">
-                {% else %}
-                <img class="card-img-top" src=" {{ blogpost.featured_image.url }}" alt="{{ post.title }}">
-                {% endif %}
-            </div>
+<div class="container mt-4">
+    <div class="row g-0 align-self-center">
+        <div class="col-sm-8 masthead-text">
+            <!-- Post title goes in these h1 tags -->
+            <h2 class="blogpost-title">{{ blogpost.title }}</h2>
+            <!-- Post author goes before the | the post's created date goes after -->
+            <p class="blogpost-subtitle">{{ blogpost.author }} | {{ blogpost.created_on }}</p>
+        </div>
+        <div class="d-none d-md-block col-sm-4">
+            {% if "placeholder" in blogpost.featured_image.url %} 
+            <img class="card-img-top" src="{% static 'images/books2.jpg' %}" alt="placeholder image">
+            {% else %}
+            <img class="card-img-top" src="{{ blogpost.featured_image.url }}" alt="{{ post.title }}">
+            {% endif %}
         </div>
     </div>
 </div>

@@ -1,11 +1,3 @@
-.sidebar-title {
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: #789262; 
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
 .main-bg {
     background-color: #F1F1EA;
 }
@@ -15,13 +7,17 @@
     background-color: transparent;
 }
 
+.card-img-top {
+    width: 277px;
+    height: 208px;
+}
+
 .image-container {
     position: relative;
 }
 
 /* Base class for common styles */
-.content-section,
-.form-content-section {
+.content-section {
     background: #ffffff;
     padding: 8px 8px;
     border: 1px solid #dddddd;
@@ -29,7 +25,7 @@
     margin-bottom: 20px;
 }
 
-/* Ensure the form content section is responsive */
+/* Extend the common styles for form-content-section and add unique styles */
 .form-content-section {
     width: 75%;
     box-sizing: border-box; /* Ensure padding is included in the width */
@@ -57,6 +53,13 @@
     margin-top: 20px;
 }
 
+.sidebar-title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #789262;
+    margin-bottom: 1rem;
+    text-align: center;
+}
 
 .image-flash {
     position: absolute;
@@ -77,39 +80,11 @@
     text-transform: uppercase;
 }
 
-.masthead {
-    margin-top: 25px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
 .masthead-text {
     background-color: #445261;
     color: white;
-    position: relative;
 }
 
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 85%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
 
 .blogpost-link {
     text-decoration: none;
@@ -122,7 +97,7 @@
 }
 
 .blogpost-title {
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 5%;
 }
 
@@ -154,22 +129,9 @@
     text-decoration: underline;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
 .btn-delete {
     color: #fff;
     background: #E84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
 }
 
 .faded {
@@ -186,13 +148,13 @@
     margin-right: 20px;
     margin-left: 15px;
     margin-bottom: 16px;
-  }
-  
-  .account-heading {
-    font-size: 2.5rem;
-  }
+}
 
-  @media (max-width: 1380px) {
+.account-heading {
+    font-size: 2.5rem;
+}
+
+@media (max-width: 1380px) {
     .form-content-section {
         padding: 8px;
     }
@@ -201,4 +163,3 @@
         width: 100%;
     }
 }
-
