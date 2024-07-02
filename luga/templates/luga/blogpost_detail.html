@@ -13,9 +13,9 @@
         </div>
         <div class="d-none d-md-block col-sm-4">
             {% if "placeholder" in blogpost.featured_image.url %} 
-            <img class="card-img-top" src="{% static 'images/books2.jpg' %}" alt="placeholder image">
+            <img class="card-img-top custom-responsive-img" src="{% static 'images/books2.jpg' %}" alt="placeholder image">
             {% else %}
-            <img class="card-img-top" src="{{ blogpost.featured_image.url }}" alt="{{ post.title }}">
+            <img class="card-img-top custom-responsive-img" src="{{ blogpost.featured_image.url }}" alt="{{ post.title }}">
             {% endif %}
         </div>
     </div>
