@@ -2,14 +2,14 @@
     background-color: #F1F1EA;
 }
 
+.navlinks {
+    color: white;
+    font-weight: 600;
+}
+
 .card {
     border: none;
     background-color: transparent;
-}
-
-.card-img-top {
-    width: 277px;
-    height: 208px;
 }
 
 .image-container {
@@ -61,12 +61,9 @@
     text-align: center;
 }
 
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
+.btn-flash {
     background-color: #188181;
+    color: white;
 }
 
 .scale {
@@ -74,15 +71,15 @@
     height: auto;
 }
 
-.author {
-    color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
 .masthead-text {
     background-color: #445261;
     color: white;
+}
+
+/* Default styling for the image */
+.custom-responsive-img {
+    width: 100%;
+    object-fit: cover; /* Ensures the image covers the container without stretching */
 }
 
 
@@ -163,3 +160,11 @@
         width: 100%;
     }
 }
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .custom-responsive-img {
+        height: 100%;
+    }
+}
+
+
