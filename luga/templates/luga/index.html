@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cloudinary %}
+
 {% block content %}
 
 <!-- index.html content starts here -->
@@ -21,9 +23,6 @@
                                         {% else %}
                                         <img class="card-img-top" src=" {{ blogpost.featured_image.url }}" alt="{{ post.title }}">
                                         {% endif %}
-                                        <div class="image-flash">
-                                            <p class="author">Author: {{ blogpost.author }}</p>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
@@ -31,8 +30,9 @@
                                     <p class="card-text">{{ blogpost.excerpt }}</p>
                                     <hr>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <p class="card-text text-muted h6 mb-0">{{ blogpost.created_on }}</p>
-                                        <a href="{% url 'blogpost_detail' blogpost.slug %}" class="btn btn-outline-secondary">
+                                        <p class="card-text text-muted h6 mb-0">Author: {{ blogpost.author }} &nbsp; | &nbsp;
+                                        {{ blogpost.created_on }}</p>
+                                        <a href="{% url 'blogpost_detail' blogpost.slug %}" class="btn btn-flash">
                                             Read More <i class="fas fa-arrow-right"></i>
                                         </a>
                                     </div>
