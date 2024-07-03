@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
 from .models import BlogPost, Comment, Like
 from .forms import CommentForm, BlogPostForm
+from django.http import HttpResponse
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -21,42 +22,35 @@ class PostList(generic.ListView):
         return context
 
 def blogpost_detail(request, slug):
-        """
-        Display an individual from
+    blogpost = get_object_or_404(BlogPost, slug=slug, status=1)
+    comments = blogpost.comments.filter(approved=True).order_by("-created_on")
+    comment_count = comments.count()
 
-        :template:`luga/post_detail.html`
-        """
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = blogpost
+            comment.save()
 
-        queryset = BlogPost.objects.filter(status=1)
-        blogpost = get_object_or_404(queryset, slug=slug)
-        comments = blogpost.comments.all().order_by("-created_on")
-        comment_count = blogpost.comments.filter(approved=True).count()
+            # Example of setting a first-party cookie
+            response = HttpResponse('Comment submitted successfully!')
+            response.set_cookie('comment_submitted', 'true', max_age=3600, secure=True, httponly=True, samesite='Strict')
 
-
-        if request.method == "POST":
-            comment_form = CommentForm(data=request.POST)
-            if comment_form.is_valid():
-                comment = comment_form.save(commit=False)
-                comment.author = request.user
-                comment.post = blogpost
-                comment.save()
-                messages.add_message(
-                    request, messages.SUCCESS,
-                    'Your comment has been submitted and is awaiting approval.'
-                )
-
+            messages.success(request, 'Your comment has been submitted and is awaiting approval.')
+            return redirect('blogpost_detail', slug=slug)
+        else:
+            messages.error(request, 'Error submitting comment. Please try again.')
+    else:
         comment_form = CommentForm()
-        return render(
-            request,
-            "luga/blogpost_detail.html", 
-            {
-                "blogpost": blogpost,
-                "comments": comments,
-                "comment_count": comment_count,
-                "comment_form": comment_form,
-                
-            },
-        )
+
+    return render(request, "luga/blogpost_detail.html", {
+        "blogpost": blogpost,
+        "comments": comments,
+        "comment_count": comment_count,
+        "comment_form": comment_form,
+    })
 
 def comment_edit(request, slug, comment_id):
     """

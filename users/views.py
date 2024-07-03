@@ -5,6 +5,7 @@ from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from luga.models import Comment
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
+from django.http import HttpResponse
 
 def register(request):
     if request.method == 'POST':
@@ -27,16 +28,18 @@ def register(request):
 def profile(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
-        profile_form = ProfileUpdateForm(request.POST,
-                                   request.FILES,
-                                   instance=request.user.profile)
+        profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
 
-            messages.success(
-                request, f'Your account has successfully been updated!'
-            )
+            # Set a first-party cookie after profile update
+            response = HttpResponse('Your profile has been updated successfully!')
+            response.set_cookie('profile_updated', 'true', max_age=3600, secure=True, httponly=True, samesite='Strict')
+            return response
+
+            messages.success(request, 'Your account has successfully been updated!')
             return redirect('profile')
     
     else:
