@@ -19,9 +19,11 @@
                                 <div class="col-md-4">
                                     <div class="image-container">
                                         {% if "placeholder" in blogpost.featured_image.url %}
-                                        <img class="card-img-top" src="{% static '/images/books2.jpg' %}"alt="placeholder image">
+                                        <img class="card-img-top" src="{% static '/images/books2.jpg' %}" 
+                                            alt="placeholder image" width="100%" height="auto">
                                         {% else %}
-                                        <img class="card-img-top" src=" {{ blogpost.featured_image.url }}" alt="{{ post.title }}">
+                                        <img class="card-img-top" src=" {{ blogpost.featured_image.url }}" 
+                                            alt="{{ post.title }}" width="100%" height="auto" loading="lazy">
                                         {% endif %}
                                     </div>
                                 </div>
@@ -35,7 +37,7 @@
                                             <p>{{ blogpost.created_on|date:"Y-m-d" }}</p>
                                         </div>
                                         <div>
-                                            <a href="{% url 'blogpost_detail' blogpost.slug %}" class="more">
+                                            <a href="{% url 'blogpost_detail' blogpost.slug %}"  alt="{{ post.title }}" class="more">
                                                 Read More <i class="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>

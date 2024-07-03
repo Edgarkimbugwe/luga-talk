@@ -30,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-edgarkimbugwe-lugatalk-j66uhktsk84.ws.codeinstitute-ide.net',
@@ -65,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
 ]
 
 ROOT_URLCONF = 'lugatalk.urls'
@@ -137,6 +138,12 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = False
+
+cloudinary.config (
+    secure=True
+)
+
+SUMMERNOTE_THEME = 'bs5'
 
 
 # Static files (CSS, JavaScript, Images)
