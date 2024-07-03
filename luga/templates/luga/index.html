@@ -30,11 +30,14 @@
                                     <p class="card-text">{{ blogpost.excerpt }}</p>
                                     <hr>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <p class="card-text text-muted h6 mb-0">Author: {{ blogpost.author }} &nbsp; | &nbsp;
-                                        {{ blogpost.created_on }}</p>
-                                        <a href="{% url 'blogpost_detail' blogpost.slug %}" class="btn btn-flash">
-                                            Read More <i class="fas fa-arrow-right"></i>
-                                        </a>
+                                        <div>
+                                            <p class="card-text text-muted h6 mb-0">Author: {{ blogpost.author }}</p>
+                                            <p>{{ blogpost.created_on|date:"Y-m-d" }}</p>
+                                        </div>
+                                        <div>
+                                            <a href="{% url 'blogpost_detail' blogpost.slug %}" class="more">
+                                                Read More <i class="fas fa-arrow-right"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

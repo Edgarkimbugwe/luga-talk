@@ -61,9 +61,16 @@
     text-align: center;
 }
 
-.btn-flash {
-    background-color: #188181;
-    color: white;
+.more {
+    font-weight: 700;
+    color: #188118;
+    text-decoration: none;
+}
+
+.more:hover {
+    font-weight: 700;
+    color: #188173;
+    text-decoration: underline;
 }
 
 .scale {
