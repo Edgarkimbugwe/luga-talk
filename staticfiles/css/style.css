@@ -36,6 +36,16 @@ p {
     margin-bottom: 20px;
 }
 
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.blogfield {
+    min-height: auto;
+}
+
+
 /* Extend the common styles for form-content-section and add unique styles */
 .form-content-section {
     width: 75%;
@@ -169,6 +179,42 @@ p {
     font-size: 2.5rem;
 }
 
+/* Make headings responsive */
+@media (max-width: 375px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .content-section {
+        padding: 4px;
+        margin-bottom: 8px;
+    }
+    
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-text {
+        font-size: 14px;
+    }
+
+    .d-flex {
+        display: block;
+        text-align: left;
+    }
+
+    .image-container {
+        margin-bottom: 10px;
+    }
+
+}
+
+
+
 @media (max-width: 1380px) {
     .form-content-section {
         padding: 8px;
@@ -184,5 +230,26 @@ p {
         height: 100%;
     }
 }
+
+/* Additional styles for very small screens */
+@media (max-width: 320px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+}
+
+
 
 
