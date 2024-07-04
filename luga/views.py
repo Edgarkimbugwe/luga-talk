@@ -7,6 +7,7 @@ from django.views.generic import TemplateView
 from .models import BlogPost, Comment, Like
 from .forms import CommentForm, BlogPostForm
 from django.http import HttpResponse
+from django.views.decorators.cache import cache_page
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -74,6 +75,10 @@ def comment_edit(request, slug, comment_id):
                                  'Error updating comment!')
 
     return HttpResponseRedirect(reverse('blogpost_detail', args=[slug]))
+
+def index(request):
+    post_list = BlogPost.objects.select_related('author').all()
+    return render(request, 'index.html', {'post_list': post_list})
 
 def comment_delete(request, slug, comment_id):
     """
