@@ -49,7 +49,7 @@
 <script src="https://widget.cloudinary.com/v2.0/global/all.js" defer></script>
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="d-flex flex-column h-100">
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -81,52 +81,54 @@
     </div>
 </nav>
 
-<!-- Displaying Django message alerts -->
-<div class="container mt-5 pt-3">
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            {% if messages %}
-            {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message | safe }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                  </button>
-            </div>
-            {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-</div>
-
-<main role="main" class="container">
-    <div class="row">
-        <div class="col-md-10">
-            {% block content %}
-            <!-- Content Goes here -->
-            {% endblock content %}
-        </div>
-        <div class="col-md-2">
-            {% block sidebar %}
-            <div class="content-section content-section-sidebar">
-                <h3 class="sidebar-title">Latest Buzz!</h3>
-                <div>
-                    <!-- The links in the sidebar are  -->
-                    <p><a href="{% url 'home' %}">Recent</a></p>
-                    <p><a href="{% url 'home' %}">Popular</a></p>
-                    <p><a href="{% url 'about' %}">About Us</a></p>
-                    <p><a href="https://bhtb.or.ug/news-events" target="_blank">
-                        Events</a></p>
-                    <p><a href="https://learn-luganda.com/" target="_blank">
-                        Learn Luganda</a>
-                    </p>
-                    <p><a href="https://www.youtube.com/@LearnLuganda/videos" 
-                        target="_blank">Talk Luganda</a>
-                    </p>
+<main class="main-bg flex-grow-1">
+    <!-- Displaying Django message alerts -->
+    <section class="container mt-5 pt-3">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    </button>
                 </div>
+                {% endfor %}
+                {% endif %}
             </div>
-            {% endblock sidebar %}
         </div>
-    </div>
+    </section>
+
+    <section class="container">
+        <div class="row">
+            <div class="col-md-10">
+                {% block content %}
+                <!-- Content Goes here -->
+                {% endblock content %}
+            </div>
+            <div class="col-md-2">
+                {% block sidebar %}
+                <div class="content-section content-section-sidebar">
+                    <h3 class="sidebar-title">Latest Buzz!</h3>
+                    <div>
+                        <!-- The links in the sidebar are  -->
+                        <p><a href="{% url 'home' %}">Recent</a></p>
+                        <p><a href="{% url 'home' %}">Popular</a></p>
+                        <p><a href="{% url 'about' %}">About Us</a></p>
+                        <p><a href="https://bhtb.or.ug/news-events" target="_blank">
+                            Events</a></p>
+                        <p><a href="https://learn-luganda.com/" target="_blank">
+                            Learn Luganda</a>
+                        </p>
+                        <p><a href="https://www.youtube.com/@LearnLuganda/videos" 
+                            target="_blank">Talk Luganda</a>
+                        </p>
+                    </div>
+                </div>
+                {% endblock sidebar %}
+            </div>
+        </div>
+    </section>
 </main>
 
 <!-- Footer -->

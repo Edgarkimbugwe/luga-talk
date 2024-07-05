@@ -3,112 +3,114 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="row g-0 align-self-center">
-        <div class="col-sm-8 masthead-text">
-            <!-- Post title goes in these h1 tags -->
-            <h2 class="blogpost-title">{{ blogpost.title }}</h2>
-            <!-- Post author goes before the | the post's created date goes after -->
-            <p class="blogpost-subtitle">{{ blogpost.author }} | {{ blogpost.created_on }}</p>
-        </div>
-        <div class="d-none d-md-block col-sm-4">
-            {% if "placeholder" in blogpost.featured_image.url %} 
-            <img class="card-img-top custom-responsive-img" 
-                 src="{% static 'images/books2.jpg' %}" 
-                 alt="placeholder image">
-            {% else %}
-            <img class="card-img-top custom-responsive-img" 
-                 src="{{ blogpost.featured_image.url }}" 
-                 alt="{{ post.title }}">
-            {% endif %}
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col card">
-            <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text">
-                    {{ blogpost.content | safe }}
-                </p>
+<div class="content-section mt-4">
+    <div class="container mt-2">
+        <div class="row g-0 align-self-center">
+            <div class="col-sm-8 masthead-text">
+                <!-- Post title goes in these h1 tags -->
+                <h2 class="blogpost-title">{{ blogpost.title }}</h2>
+                <!-- Post author goes before the | the post's created date goes after -->
+                <p class="blogpost-subtitle">{{ blogpost.author }} | {{ blogpost.created_on }}</p>
             </div>
-        </div>
-    </div>
-    <strong class="text-secondary">
-        <i class="far fa-comments"></i> {{ comment_count }} &nbsp; &nbsp;
-        <a href="{% url 'like_blogpost' blogpost.id %}">
-            <i class="fas fa-heart"></i> {{ blogpost.likes.count }}
-        </a>
-    </strong>
-    <!-- To display Comments -->
-    <div class="row">
-        <div class="col-md-8 card mb-4 mt-3">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                <!-- A for loop inside the empty control tags to iterate through each comment in comments -->
-                {% for comment in comments %}
-                <div class="p-2 comments{% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
-                    <p class="fw-bold">
-                        {{ comment.author }}
-                        <span class="fw-normal">
-                            {{ comment.created_on }}
-                        </span> wrote:
-                    </p>
-                    <div id="comment{{ comment.id }}">
-                        {{ comment.text | linebreaks }}
-                    </div>
-                    {% if not comment.approved and comment.author == user %}
-                    <p class="approval">This comment is awaiting approval</p>
-                    {% endif %}
-                    {% if user.is_authenticated and comment.author == user %}
-                    <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
-                    <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
-                    {% endif %}
-                </div>
-                <!-- Our for loop ends here -->
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    <!-- Creating New Comments -->
-    <div class="row">
-        <div class="col-md-8 card mb-4 mt-3">
-            <div class="card-body">
-                {% if user.is_authenticated %}
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
+            <div class="d-none d-md-block col-sm-4">
+                {% if "placeholder" in blogpost.featured_image.url %} 
+                <img class="card-img-top custom-responsive-img" 
+                    src="{% static 'images/books2.jpg' %}" 
+                    alt="placeholder image" loading="lazy">
                 {% else %}
-                <p><a href="{% url 'login' %}">Log in</a> to leave a comment</p>
+                <img class="card-img-top custom-responsive-img" 
+                    src="{{ blogpost.featured_image.url }}" 
+                    alt="{{ post.title }}" loading="lazy">
                 {% endif %}
             </div>
         </div>
     </div>
-</div>
 
-<!-- Delete confirmation modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+    <div class="container">
+        <div class="row">
+            <div class="col card">
+                <div class="card-body">
+                    <!-- The post content goes inside the card-text. -->
+                    <!-- Use the | safe filter inside the template tags -->
+                    <p class="card-text">
+                        {{ blogpost.content | safe }}
+                    </p>
+                </div>
             </div>
-            <div class="modal-body">
-                Are you sure you want to delete your comment? This action cannot be undone.
+        </div>
+        <strong class="text-secondary">
+            <i class="far fa-comments"></i> {{ comment_count }} &nbsp; &nbsp;
+            <a href="{% url 'like_blogpost' blogpost.id %}">
+                <i class="fas fa-heart"></i> {{ blogpost.likes.count }}
+            </a>
+        </strong>
+        <!-- To display Comments -->
+        <div class="row">
+            <div class="col-md-8 card mb-4 mt-3">
+                <h3>Comments:</h3>
+                <div class="card-body">
+                    <!-- A for loop inside the empty control tags to iterate through each comment in comments -->
+                    {% for comment in comments %}
+                    <div class="p-2 comments{% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
+                        <p class="fw-bold">
+                            {{ comment.author }}
+                            <span class="fw-normal">
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        <div id="comment{{ comment.id }}">
+                            {{ comment.text | linebreaks }}
+                        </div>
+                        {% if not comment.approved and comment.author == user %}
+                        <p class="approval">This comment is awaiting approval</p>
+                        {% endif %}
+                        {% if user.is_authenticated and comment.author == user %}
+                        <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+                        <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
+                        {% endif %}
+                    </div>
+                    <!-- Our for loop ends here -->
+                    {% endfor %}
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+        </div>
+        <!-- Creating New Comments -->
+        <div class="row">
+            <div class="col-md-8 card mb-4 mt-3">
+                <div class="card-body">
+                    {% if user.is_authenticated %}
+                    <h3>Leave a comment:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form id="commentForm" method="post" style="margin-top: 1.3em;">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    </form>
+                    {% else %}
+                    <p><a href="{% url 'login' %}">Log in</a> to leave a comment</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete confirmation modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete your comment? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+                </div>
             </div>
         </div>
     </div>
