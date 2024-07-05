@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-size: 24px;
 }
@@ -7,7 +11,10 @@ p {
 }
 
 .main-bg {
-    background-color: #F1F1EA;
+    background-image: url('/static/images/readmore.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .navlinks {
