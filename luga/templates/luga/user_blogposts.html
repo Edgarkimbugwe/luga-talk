@@ -9,13 +9,13 @@
 		<ul>
 		{% for blogpost in blogposts %}
 			<li>
-			<a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a> 
-			&nbsp;|
-			{% if user == blogpost.author %}
-			<a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
-			&nbsp;|
-			<a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
-			{% endif %} 
+				<a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a> 
+				&nbsp;|
+				{% if user == blogpost.author %}
+				<a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
+				&nbsp;|
+				<a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
+				{% endif %} 
 			</li>
 			<br>
 		{% empty %}
@@ -28,9 +28,10 @@
 		<ul>
 		{% for blogpost in liked_posts %}
 			<li>
-			<a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
-			&nbsp;| By:
-			{{ blogpost.author }}
+				<a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
+				&nbsp;| By:
+				{{ blogpost.author }}
+				&nbsp;| <a href="{% url 'remove_favorite' blogpost.id %}">Remove</a>
 			</li>
 			<br>
 		{% empty %}
