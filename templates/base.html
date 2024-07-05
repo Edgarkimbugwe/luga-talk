@@ -110,12 +110,18 @@
             <div class="content-section content-section-sidebar">
                 <h3 class="sidebar-title">Latest Buzz!</h3>
                 <div>
-                    <p><a href="#">Recent Posts</a></p>
-                    <p><a href="#">Popular Posts</a></p>
-                    <p><a href="#">Events</a></p>
-                    <p><a href="#">Newsletter</a></p>
-                    <p><a href="#">Talk Luganda</a></p>
-                    <p><a href="#">Get Involved!</a></p>
+                    <!-- The links in the sidebar are  -->
+                    <p><a href="{% url 'home' %}">Recent</a></p>
+                    <p><a href="{% url 'home' %}">Popular</a></p>
+                    <p><a href="{% url 'about' %}">About Us</a></p>
+                    <p><a href="https://bhtb.or.ug/news-events" target="_blank">
+                        Events</a></p>
+                    <p><a href="https://learn-luganda.com/" target="_blank">
+                        Learn Luganda</a>
+                    </p>
+                    <p><a href="https://www.youtube.com/@LearnLuganda/videos" 
+                        target="_blank">Talk Involved!</a>
+                    </p>
                 </div>
             </div>
             {% endblock sidebar %}
