@@ -10,6 +10,7 @@ urlpatterns = [
     path('about/', AboutView.as_view(), name='about'),
     path('create/', create_blogpost, name='create-blogpost'),
     path('like/<int:post_id>/', views.like_blogpost, name='like_blogpost'),
+    path('remove_favorite/<int:post_id>/', views.remove_favorite, name='remove_favorite'),
     path('my-blogposts/', views.user_blogposts, name='user_blogposts'),
     path('<slug:slug>/', views.blogpost_detail, name='blogpost_detail'),
     path('<slug:slug>/edit_comment/<int:comment_id>',

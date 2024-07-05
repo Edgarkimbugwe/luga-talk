@@ -7,13 +7,15 @@
   <div class="content-section col-md-8 p-4 rounded text-center">
      <h1>Delete Blog Post</h1>
   <br>
-  <p>Are you sure you want to delete <strong>"{{ blogpost.title }}"?</strong></p>
+    <p>Are you sure you want to delete 
+        <strong>"{{ blogpost.title }}"?</strong>
+    </p>
   <br>
   <form method="post">
-  {% csrf_token %}
-  <button type="submit" class="btn btn-danger">Delete</button>
-  <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
-  </form>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
+    </form>
 </div>
 </div>
 {% endblock %}

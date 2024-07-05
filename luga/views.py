@@ -140,6 +140,17 @@ def like_blogpost(request, post_id):
     like.save()
     return redirect('blogpost_detail', slug=blogpost.slug)
 
+@login_required
+def remove_favorite(request, post_id):
+    blogpost = get_object_or_404(BlogPost, id=post_id)
+    if request.method == "POST":
+        like = get_object_or_404(Like, post=blogpost, user=request.user)
+        like.liked = False
+        like.save()
+        messages.success(request, 'The post has been removed from your favorites.')
+        return redirect('user_blogposts')
+    return render(request, 'luga/remove_favorite.html', {'blogpost': blogpost})
+
 
 @login_required
 def blogpost_edit(request, slug):
