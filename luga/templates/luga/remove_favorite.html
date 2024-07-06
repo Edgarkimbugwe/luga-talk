@@ -3,20 +3,33 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container mt-4 d-flex justify-content-center align-items-center">
-  <div class="content-section col-md-8 p-4 rounded text-center">
-     <h1>Remove Blog Post</h1>
-  <br>
-  <p>
-    Are you sure you want to remove 
-        <strong>"{{ blogpost.title }}"</strong> from your favourite posts?
-    </p>
-  <br>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Delete</button>
-    <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
-    </form>
-</div>
+<div class="main-one-page">
+  <div class="p-5">
+    <div class="mask">
+      <div class="container d-flex h-100 justify-content-center">
+        <div class="text-dark row justify-content-center align-items-center text-center">
+          <div class="col-md-12 rounded">
+            <div class="content-section content-section-two">
+              <div class="text-center">
+                <h1>Remove Blog Post</h1>
+      <br>
+      <p>
+      Are you sure you want to remove 
+          <strong>"{{ blogpost.title }}"</strong> from your favourite posts?
+      </p>
+      <br>
+      <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Delete</button>
+      <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
+      </form>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

@@ -2,6 +2,15 @@ html, body {
     height: 100%;
 }
 
+/* On pages that don't scroll fix the footer to the bottom. 
+All classes and id's starting with "main-" has this function*/
+.main-one-page {
+    height: 78vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-size: 24px;
 }
@@ -11,11 +20,9 @@ p {
 }
 
 .main-bg {
-    background-image: url('/static/images/readmore.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: #CBCB78;
 }
+
 
 .navlinks {
     color: white;
@@ -36,11 +43,20 @@ p {
 
 /* Base class for common styles */
 .content-section {
-    background: #ffffff;
+    background: rgba(255, 240, 245, 0.4);
     padding: 8px 8px;
     border: 1px solid #dddddd;
     border-radius: 8px;
     margin-bottom: 20px;
+}
+
+.content-section-sidebar {
+    margin-top: 20px;
+}
+
+.content-section-two {
+    max-height: fit-content;
+    overflow-y: auto;
 }
 
 .img-fluid {
@@ -75,10 +91,6 @@ p {
 .form-control {
     width: 100%;
     box-sizing: border-box;
-}
-
-.content-section-sidebar {
-    margin-top: 20px;
 }
 
 .sidebar-title {
@@ -236,6 +248,7 @@ p {
     .custom-responsive-img {
         height: 100%;
     }
+
 }
 
 /* Additional styles for very small screens */
@@ -256,3 +269,13 @@ p {
         font-size: 12px;
     }
 }
+
+@media (max-width: 430px) {
+    .main-one-page {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+

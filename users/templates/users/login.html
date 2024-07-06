@@ -8,26 +8,41 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5 pt-4">
-    <div class="row justify-content-center">
-        <div class="content-section col-md-5 offset-md-3 p-4 rounded">
-            <form method="POST">
-                {% csrf_token %}
-                <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Welcome!</legend>
-                    {{ form|crispy }}
-                </fieldset>
-                <div class="form-group text-center">
-                    <button class="btn btn-outline-info" type="submit">Login</button>
+<div class="main-one-page">
+    <div class="p-5">
+      <div class="mask">
+        <div class="container d-flex h-100 justify-content-center">
+          <div class="text-dark row justify-content-center align-items-center">
+            <div class="col-md-12 offset-md-5 p-5 rounded">
+              <div class="content-section content-section-two" id="content-login">
+                
+                <!-- Login form -->
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4 text-center">Welcome!</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group text-center">
+                        <button class="btn btn-outline-info" type="submit">Login</button>
+                    </div>
+                    <br>
+                </form>
+  
+                <!-- Sign up Link -->
+                <div class="border-top pt-3 text-center">
+                    <small class="text-muted">
+                        Become a member <a class="ml-2" 
+                            href="{% url 'register' %}">
+                                <p>Sign Up Now!</p></a>
+                    </small>
                 </div>
-                <br>
-            </form>
-            <div class="border-top pt-3 text-center">
-                <small class="text-muted">
-                    Sign up for your Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now!</a>
-                </small>
+				
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 {% endblock content %}
