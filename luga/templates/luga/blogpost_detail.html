@@ -44,6 +44,16 @@
                 <i class="fas fa-heart"></i> {{ blogpost.likes.count }}
             </a>
         </strong>
+        <br>
+        <br>
+        <p class="text-center">
+            <a href="{% url 'home' %}">Back to blog posts</a>
+            {% if user.is_authenticated %}
+            &nbsp;| &nbsp;
+            <a href="{% url 'user_blogposts' %}"> My blog posts</a>
+            {% endif %}
+        </p>
+
         <!-- To display Comments -->
         <div class="row">
             <div class="col-md-8 card mb-4 mt-3">
