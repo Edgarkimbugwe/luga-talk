@@ -41,6 +41,13 @@ p {
     overflow: hidden;
 }
 
+.image-container img {
+    height: 200px; /* Define a height to maintain aspect ratio */
+    width: 100%;
+    object-fit: cover; /* Ensures the image covers the container without stretching */
+}
+
+
 /* Base class for common styles */
 .content-section {
     background: rgba(255, 240, 245, 0.4);
@@ -71,7 +78,7 @@ p {
 }
 
 .blogfield {
-    min-height: auto;
+    min-height: auto; /* Ensure content stability */
 }
 
 

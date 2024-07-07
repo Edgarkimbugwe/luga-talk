@@ -12,7 +12,6 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-4 left">
             <div class="row justify-content-center">
-                {# {% cache 900 blogpost_list %} #} <!-- Start caching the blog post list for 15 minutes (900 seconds) -->
                 {% for blogpost in post_list %}
                 <div class="col-md-12 mx-auto content-section">
                     <div class="card mb-1">
@@ -22,7 +21,7 @@
                                     <div class="image-container">
                                         {% if "placeholder" in blogpost.featured_image.url %}
                                         <img class="card-img-top img-fluid" src="{% static '/images/books2.webp' %}" 
-                                            alt="placeholder image" width="100%" height="auto">
+                                            alt="placeholder image" width="100%" height="auto" loading="lazy">
                                         {% else %}
                                         <img class="card-img-top img-fluid" src=" {{ blogpost.featured_image.url }}" 
                                             alt="{{ post.title }}" width="100%" height="auto" loading="lazy">
@@ -55,7 +54,6 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-               {# {% endcache %} #} <!-- End caching -->
             </div>
             
         </div>
