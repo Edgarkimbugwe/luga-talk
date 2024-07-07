@@ -20,7 +20,7 @@ p {
 }
 
 .main-bg {
-    background-color: #CBCB78;
+    background-color: #CBCBB6;
 }
 
 
@@ -44,14 +44,20 @@ p {
 /* Base class for common styles */
 .content-section {
     background: rgba(255, 240, 245, 0.4);
-    padding: 8px 8px;
+    padding: 8px;
     border: 1px solid #dddddd;
     border-radius: 8px;
     margin-bottom: 20px;
 }
 
 .content-section-sidebar {
-    margin-top: 20px;
+    background: rgba(233, 210, 217, 0.4);
+    padding: 15px;
+    border: 2px solid #dddddd;
+    border-radius: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .content-section-two {
@@ -276,6 +282,23 @@ p {
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .col-md-9 {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .col-md-3 {
+        display: flex;
+        flex-direction: column;
     }
 }
 
