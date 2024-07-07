@@ -12,7 +12,7 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-4 left">
             <div class="row justify-content-center">
-                {% cache 900 blogpost_list %} <!-- Start caching the blog post list for 15 minutes (900 seconds) -->
+                {# {% cache 900 blogpost_list %} #} <!-- Start caching the blog post list for 15 minutes (900 seconds) -->
                 {% for blogpost in post_list %}
                 <div class="col-md-12 mx-auto content-section">
                     <div class="card mb-1">
@@ -39,8 +39,10 @@
                                                 <p>{{ blogpost.created_on|date:"Y-m-d" }}</p>
                                             </div>
                                             <div>
-                                                <a href="{% url 'blogpost_detail' blogpost.slug %}"  alt="{{ post.title }}" class="more">
-                                                    Read More <i class="fas fa-arrow-right"></i></a>
+                                                <a href="{% url 'blogpost_detail' blogpost.slug %}"
+                                                    aria-label=" Read more about {{ post.title }}" 
+                                                    class="more">
+                                                    Full post <i class="fas fa-arrow-right"></i></a>
                                             </div>
                                         </div>
                                 </div>
@@ -53,7 +55,7 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-                {% endcache %} <!-- End caching -->
+               {# {% endcache %} #} <!-- End caching -->
             </div>
             
         </div>
