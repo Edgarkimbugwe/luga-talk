@@ -10,6 +10,6 @@ Discover the rhythm and melody of Luganda as you immerse yourself in our communi
 
 Join us as we delve deeper into the heart of Luganda and embrace the spirit of Luga-flow. Let's journey together towards mastering this incredible language and embracing the diversity it embodies.
 
-![Mockup image]()
+![Mockup image](/docs/mockup.png)
 Developer: Edgar Kimbugwe <br>
 [Live webpage](https://lugatalk-ab90580d7f17.herokuapp.com/)
