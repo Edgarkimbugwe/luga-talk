@@ -11,6 +11,7 @@ Discover the rhythm and melody of Luganda as you immerse yourself in our communi
 Join us as we delve deeper into the heart of Luganda and embrace the spirit of Luga-flow. Let's journey together towards mastering this incredible language and embracing the diversity it embodies.
 
 ![Mockup image](/docs/mockup.png)
+<br>
 Developer: Edgar Kimbugwe <br>
 [Live webpage](https://lugatalk-ab90580d7f17.herokuapp.com/)
 
@@ -24,8 +25,14 @@ Developer: Edgar Kimbugwe <br>
     2. [User Requirements and Expectations](#user-requirements-and-expectations)
     3. [User Stories](#user-stories)
 3. [Database](#database)
-    1. [User App](#user-app)
-    2. [Luga App](#luga-app)
+    1. [Luga App](#luga-app)
+    2. [User App](#user-app)
+4. [Design](#design)
+    1. [Design Choices](#design-choices)
+    2. [Colour](#colours)
+    3. [Fonts](#fonts)
+    4. [Structure](#structure)
+    5. [Wireframes](#wireframes)
 
 ## Project Goals
 
@@ -96,5 +103,97 @@ Luga|Talk aims to create an engaging platform for users to explore, discover, an
 #### Epic 3: User Experience and Site Information
 - [As a Site User I can see the about page of the blog so that have an insight of blogs posted](https://github.com/Edgarkimbugwe/django-blog/issues/32)<br>
 - [As a Site User, I can browse the blog posts so that I can read articles of interest](https://github.com/Edgarkimbugwe/django-blog/issues/15)<br>
+
+[Back up](#table-of-content)
+
+## Database
+Luga|Talk uses the following database scheme:
+<details><summary>See Database Scheme</summary>
+<img src="docs/database.png">
+</details>
+
+### Luga App
+This is the core component of the LugaTalk project, responsible for managing blog posts, comments, and user interactions with the content.
+- Blog Post Management: Facilitates the creation, publication, and management of blog posts. This is, create, edit and delete a post. 
+- Commenting System: Allows users to add comments to blog posts and ensures that comments require approval before being displayed
+- User Engagement and Interaction: Enhances user engagement by allowing them to express appreciation for content by liking a post. 
+- Personalized Content: To provide a personalized content experience, posts authored and liked by the logged-in user are displayed to the registered users account. 
+
+### User App
+The 'User App' handles user management, including registration, profile management, and authentication.
+- User Registration and Authentication: Allows new users to register and existing users to log in and out of the system securely.
+- Profile Management: Enables users to manage and update their profile information, including personal details and adding a profile pictures stored through cloud-based hosting.
+- User Account and Data Handling: Ensures that user-related data is properly managed, including account deletion and related data cleanup.
+
+[Back up](#table-of-content)
+
+## Design
+The design of the LugaTalk website is user-centric, blending modern aesthetics with intuitive navigation. It features a clean, responsive layout optimized for readability and user engagement. The design elements highlight the cultural richness of Luganda while ensuring a seamless user experience across devices.
+
+By embracing a minimalistic design, LugaTalk ensures that the focus remains on the rich cultural content and stories shared within the community. The use of ample white space, intuitive navigation, and clear typography enhances readability, allowing the beauty of language and vibrant blog content to take center stage."
+
+### Design Choices
+The website features a minimalistic, responsive design that emphasizes readability and cultural aesthetics. The color palette, including shades like subtle pastels, enhances visual appeal and reflects the vibrancy of Luganda culture. Clear typography and intuitive navigation improve the user experience, while interactive elements like comments and likes foster community engagement
+
+### Colour
+The color palette is thoughtfully chosen to reflect the cultural richness and vibrancy of Luganda while maintaining a clean, minimalistic aesthetic. The use of subtle, harmonious colors creates a warm and inviting atmosphere without overwhelming the user. This approach enhances readability and ensures that the focus remains on the content. By avoiding background images, the design prioritizes simplicity and speed, providing a distraction-free experience that highlights the textual and visual content of the blog posts.
+
+![Mockup image](/docs/colorpalette.png)
+
+### Fonts
+The project utilizes the default fonts provided by Bootstrap 5, ensuring a clean and professional look that enhances the overall user experience. However, users have the flexibility to customize and style fonts during content creation and editing to add their unique touch.
+
+### Structure
+The Luga|Talk features a user-friendly and intuitive design, ensuring easy navigation and comprehension for users. It is structured into distinct sections and pages as follows:
+
+#### Before Logged In:
+
+- **Landing Page** Here, visitors are immediately greeted with the latest posts, reflecting the design's focus on showcasing recent content first.<br>
+- **About Page:** The "About" page provides an introduction to LuGa|Talk, highlighting its celebration of Luga-flow and Luganda culture, language, and community engagement.<br>
+- **Register Page:** The register page allows new users to create accounts, providing access to personalized features and community engagement.<br>
+- **Login Page:** The login page enables registered users to securely access their accounts and interact with the platform's content and community.<br>
+
+#### When Logged In:
+Upon logging in, users are still directed to the most recent posts however unlike unregistered users, they can access extra functionalities through additional links which are revealed, providing access to specific profile-related pages and actions. 
+
+- **New Post:** The "New post" page enables users to Add posts by providing a user-friendly form to input content for the blog post they want to create and have an option to apply own fonts when creating posts. .<br>
+- **My Blog posts page:** This page allows users to view and manage their created blog post allowing them to either edit or delete them. Also this page list the users favorite posts that they have liked.<br>
+- **Commenting:** Logged-in users have the ability to engage with blog posts by leaving comments and participating in discussions.<br>
+- **Profile Page:** The profile page displays the user's profile information, including their bio, profile picture, and other relevant details. It allows users to update and customize their profile settings. At the top of this page, the link to the user's blog posts is available, so that the user gets access to their blog posts and liked posts under 'my favorite posts'.<br>
+- **Logout:** The "Logout" option allows users to securely log out of their accounts, ensuring the privacy and security of their personal information.<br>
+
+Luga|Talk's structured design ensures a seamless and enjoyable user experience, allowing users to effortlessly explore, contribute to, and manage their blog posts.
+
+### Wireframes
+The wireframes visually depict various pages and features of the web application, serving as blueprints for designing each page. They provide a clear visualization of the user interface and overall user experience, created efficiently with Balsamiq—a tool designed for quick and intuitive sketching of design concepts.
+
+<details><summary>Home Page (landing page)</summary>
+<img src="docs/wireframes/index.png">
+</details>
+<details><summary>About</summary>
+<img src="docs/wireframes/about.png">
+</details>
+<details><summary>Register</summary>
+<img src="docs/wireframes/register.png">
+</details>
+<details><summary>My Blog Postss</summary>
+<img src="docs/wireframes/myblogs.png">
+</details>
+<details><summary>New Post</summary>
+<img src="docs/wireframes/createblog.png">
+</details>
+<details><summary>Login</summary>
+<img src="docs/wireframes/login.png">
+</details>
+<details><summary>Blog Post Detail</summary>
+<img src="docs/wireframes/blogpostdetails.png">
+</details>
+<details><summary>Profile</summary>
+<img src="docs/wireframes/profile.png">
+</details>
+<details><summary>Logout</summary>
+<img src="docs/wireframes/logout.png">
+</details>
+<br>
 
 [Back up](#table-of-content)
