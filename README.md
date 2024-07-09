@@ -33,6 +33,18 @@ Developer: Edgar Kimbugwe <br>
     3. [Fonts](#fonts)
     4. [Structure](#structure)
     5. [Wireframes](#wireframes)
+5. [Technologies Used](#technologies-used)
+    1. [Languages](#languages)
+    2. [Frameworks](#frameworks)
+    3. [Database](#database)
+    4. [Tools](#tools)
+    5. [Supporting Libraries and Packages](#supporting-libraries-and-packages)
+6. [Methodology](#methodology)
+    1. [Agile Project Management with GitHub Projects](#agile-project-management-with-github-projects)
+    2. [User Stories as GitHub Issues](#user-stories-as-github-issues)
+    3. [Bug Tracking](#bug-tracking)
+    4. [Iterative Development Approach](#iterative-development-approach)
+    5. [Backlog and Subsequent Iterations](#backlog-and-subsequent-iterations)
 
 ## Project Goals
 
@@ -197,3 +209,71 @@ The wireframes visually depict various pages and features of the web application
 <br>
 
 [Back up](#table-of-content)
+
+### Languages
+- HTML: Standard HTML5 structure
+- CSS: For layout and styling
+- Python: Used through the Django web framework to manage the backend logic, database interactions, and dynamic content rendering in templates.
+
+### Frameworks
+- Django: Utilized for building the LuGa|Talk website, providing robust and scalable web development features.
+- Crispy Forms: Used to enhance form rendering, making them more efficient and customizable.
+- Bootstrap v5.0: Used to create responsive and visually appealing user interfaces.
+- Cloudinary: Employed for storing and serving images in the LuGa|Talk project, ensuring efficient media handling and delivery.
+
+### Database
+PostgreSQL: A database-as-a-service solution used for the LuGa|Talk project, offering reliable and scalable storage for the application's data.
+
+### Tools
+- Git: A distributed version control system utilized for tracking changes in the project's source code.
+- GitHub: A web-based platform for hosting version control repositories, used for storing and managing the project's source code.
+- Gitpod: An online integrated development environment (IDE) used for developing and testing the LuGa|Talk project.
+- Heroku: A cloud platform for deploying and hosting web applications, used to deploy the Luga|Talk to a live server.
+- Microsoft Photos: Utilized for image manipulation and design tasks for the project.
+- Balsamiq: A wireframing tool used to create mockups and prototypes for the project.
+- Google Fonts: A collection of free and open-source fonts used for typography.
+- Font Awesome: A library of scalable vector icons used for adding icons to the project.
+
+### Supporting Libraries and Packages
+asgiref==3.8.1: A package providing ASGI (Asynchronous Server Gateway Interface) utilities and reference implementations for Django.
+cloudinary==1.36.0: A Python library for integrating Cloudinary's cloud-based image and video management services.
+crispy-bootstrap5==0.7: A Django application to integrate Bootstrap 5 with Django Crispy Forms, providing enhanced form rendering.
+dj-database-url==0.5.0: A utility to configure the Django database using a URL, simplifying database setup.
+dj3-cloudinary-storage==0.0.6: A package enabling Django to use Cloudinary for media file storage.
+Django==4.2.13: A high-level Python web framework that encourages rapid development and clean, pragmatic design.
+django-cloudinary-storage==0.3.0: Another package to integrate Cloudinary with Django for media file storage.
+django-crispy-forms==2.1: A Django application that improves the rendering of forms with better and customizable HTML.
+django-summernote==0.8.20.0: A Django package that integrates the Summernote WYSIWYG editor for rich text editing.
+gunicorn==22.0.0: A Python WSGI HTTP Server for UNIX, commonly used to run Django applications in production.
+pillow==10.3.0: A Python Imaging Library (PIL) fork, adding image processing capabilities to your application.
+psycopg2==2.9.9: A PostgreSQL adapter for Python, allowing interaction with PostgreSQL databases.
+sqlparse==0.5.0: A non-validating SQL parser for Python, used for parsing SQL statements.
+urllib3==1.26.18: A powerful, user-friendly HTTP client for Python, used for making web requests.
+whitenoise==5.3.0: A tool that simplifies static file serving for Python web apps, typically used with Django for serving static files in production.
+
+[Back up](#table-of-content)
+
+## Methodology
+The LuGa|Talk project was developed using agile principles to enhance collaboration, ensure iterative development, and improve project management. The following methodology was employed throughout the project:
+
+### Agile Project Management with GitHub Projects
+GitHub Projects has been used to facilitate agile project management serving as a Kanban board, to offer an overview of the project's progress. User stories are organized as GitHub issues, ensuring a clear and structured development approach. 
+
+### User Stories as GitHub Issues
+User stories have been meticulously crafted, interconnected as GitHub issues, detailing the desired functionality from the user's perspective. These issues are providing a seamless access to acceptance criteria, tasks, and pertinent comments for each story.
+
+### Bug Tracking
+Due to the urgency to meet deadlines, bugs encountered during development have not yet been logged in the Kanban board. However, they have been noted and the intention is to promptly log them. These bugs will be documented as GitHub issues, providing details on the specific issues, their impact, and steps to reproduce them. By linking these bugs in the README.md to their respective GitHub issues, users will be able to track the progress of bug resolution expecially by the help of related comments.
+
+### Iterative Development Approach
+The Luga|Talk project embraces iterative development, fostering continuous improvement and progress despite the condensed timeline. This structured approach accommodates future iterations and enhancements, ensuring ongoing development and refinement within specified time constraints.
+
+### Backlog and Subsequent Iterations 
+User stories are managed on the project board, with the "To do" column serving as the backlog for subsequent iterations.
+
+Despite the accelerated project timeline, the iterative development approach ensures continuous improvements and enhancements to adapt to evolving user needs.
+
+For a detailed overview of project progress, user stories, and bug tracking, please refer to the [Kanban board](https://github.com/users/Edgarkimbugwe/projects/12/views/1).
+
+[Back up](#table-of-content)
+
