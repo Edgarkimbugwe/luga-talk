@@ -45,6 +45,14 @@ Developer: Edgar Kimbugwe <br>
     3. [Bug Tracking](#bug-tracking)
     4. [Iterative Development Approach](#iterative-development-approach)
     5. [Backlog and Subsequent Iterations](#backlog-and-subsequent-iterations)
+7. [Features](#features)
+    1. [Landing Page](#landing-page)
+    2. [User Pages](#user-pages)
+    3. [New Post Page](#new-post-page)
+    4. [Blog Post Management](#blog-post-management)
+    5. [User Account Management](#user-account-management)
+    6. [Navigation](#navigation)
+    7. [Future Features](#future-features)
 
 ## Project Goals
 
@@ -277,3 +285,75 @@ For a detailed overview of project progress, user stories, and bug tracking, ple
 
 [Back up](#table-of-content)
 
+## Features
+### Landing Page:
+The landing page for LuGa|Talk, designed to showcase recent blog posts in a visually appealing format. It inherits from base.html and integrates features like dynamic image handling with Cloudinary and static file loading. Each blog post is presented within a responsive grid layout, featuring post titles, excerpts, author details, and publication dates. Users can navigate through paginated content and access full posts via intuitive navigation links. This page exemplifies the seamless integration of Django templates with Bootstrap for enhanced user experience and readability. <details><summary>See Screenshot</summary><img src="docs/features/landingpage.png"></details>
+
+- From the Screenshot above, the navigation bar is structured in a way that when the user is not logged in or an unregistered user visits the website, they can only see, 'Login' and 'Register' on the right panel. However when the user is logged in this part of the navigation bar changes to show functions that a registered user can use. </summary><img src="docs/features/navbar.png"></details>
+
+### User Pages:
+When a user logs in, s/he is redirected to their profile page. This page has the user's own blog posts and the ones they have liked and registered as favourite blogs. At this page also to increase accesibilty for the user to navigate easily onto the website, the user is provied with links at the bottom of the page where s/he can go back to the index, view profile or create a new post, these links are also available for the user at the Navbar. <details><summary>See Screenshot</summary><img src="docs/features/userprofile.png"></details>
+
+### New Post Page:
+- logged in users can create new blog posts by following the New post link at the navbar or even at the bottom of their blog user page.  <details><summary>See Screenshot</summary><img src="docs/features/newpostform.png"></details>
+- Once a post has been submitted, They are informed that the post is added and pending approval from the admin. <details><summary>See Screenshot</summary><img src="docs/features/newaddedpost.png"></details>
+- Once a post has been approved by the admin, the post is ready to be viewed and should appear on top of all the other previous posts. At the bottom of every post, users can see how many comments each post has got and how many times a post has been favoured/liked. Also comments can be viewed by both registered and non registered users. When a user is not logged in, they are advised to log in to leave a comment. <details><summary>See Screenshot</summary><img src="docs/features/leavecomment.png"></details> 
+- Registered users on the otherhand can interact with other users through commenting on the blog posts by sharing either thoughts, suggestions or feedback. <details><summary>See Screenshot</summary><img src="docs/features/comment.png"></details>
+
+### Blog Post Management:
+Registered users can add, edit, and delete blogs from their profile.
+- Edit their own blog posts and after updating successfully a message is shown to the user. <details><summary>See Screenshot</summary><img src="docs/features/postupdated.png"> 
+- Delete their own blog posts and be warned before talking the action to delete. <details><summary>See Screenshot</summary><img src="docs/features/deletepost.png"> 
+- Remove blog post from their favorites and be warned before talking the action to delete. <details><summary>See Screenshot</summary><img src="docs/features/removepost.png">
+
+The Luga|Talk project emphasizes CRUD functionality, allowing users to create, read, update, and delete blogs as they contribute to the language learning community.
+
+### User Account Management:
+- LuGa|Talk provides robust user account management features, allowing users to easily sign up, log in, and manage their profiles. The platform ensures secure authentication, using industry-standard practices to protect user data and maintain privacy. This enhances overall user interaction, satisfaction, and security. Such validation at creation include is: 
+    - Username: required field and has a maximum of 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+    - First name: Set to not required at this stage
+    - Last Name: Also set to not required at this stage
+    - Email: required and has to be an email
+    - Password: has the following constraints:
+        - can’t be too similar to your other personal information.
+        - must contain at least 8 characters.
+        - can’t be a commonly used password.
+        - can’t be entirely numeric.
+    - Password confirmation
+    <details><summary>See Screenshot</summary><img src="docs/features/register.png"></details>
+
+- Upon successfully creating an account, a user gets a confirmation and asked to log in.<details><summary>See Screenshot</summary><img src="docs/features/accountcreated.png"></details>
+
+- Users can log in to their accounts to access personalized features<details><summary>See Screenshot</summary><img src="docs/features/login.png"></details>
+
+- Users can view and update their profile information.<details><summary>See Screenshot</summary><img src="docs/features/profile.png"></details>
+
+- Upon updating their profile a user gets a confirmation messgage.<details><summary>See Screenshot</summary><img src="docs/features/profileupdated.png"></details>
+
+### Navigation:
+- The navigation bar in LuGa|Talk provides users with an intuitive and seamless browsing experience. With links to key sections allowing users to quickly access different parts of the site. For logged-in users, the navigation bar also features options that ensures them with easy account management. The responsive design ensures that the navigation bar is accessible and user-friendly on both desktop and mobile devices where it collapses into a burger menu.
+
+
+
+#### Unauthorized users
+- When unauthorized, the navigation bar displays links to "Home", "About", "Login and "Register". <details><summary>See Screenshot</summary><img src="docs/features/unauthoriseduser.png"></details>
+
+- On small screens, the navigation bar adapts to a responsive design, often collapsing into a hamburger menu to maintain usability and accessibility on mobile devices. This ensures that all navigation options remain easily accessible regardless of the screen size. <details><summary>See Screenshot</summary><img src="docs/features/mobileunauthorised.png"></details>
+
+#### Authorized users
+- When authorized, the navigation bar updates to include links to "New Post", Profile['logged in username']" and "logout". <details><summary>See Screenshot</summary><img src="docs/features/authoriseduser.png"></details> 
+
+- On small screens, the navigation bar behaves in the same way as to the non authorised user with the new links accessible to the authorised user as on big screens <details><summary>See Screenshot</summary><img src="docs/features/mobileauthorised.png"></details>
+
+### Future Features
+As observed in the Todo list, there are still some exciting stories that are desire to be worked on, for now they will be adjusted to "won't have". The idea is to have all the features implemented.
+
+- Social Media Sharing: Users will be able to share blog posts on popular social media platforms such as Facebook, Twitter, and LinkedIn. This feature will enable wider dissemination of content, allowing users to engage with a broader audience and promote LuGa|Talk across various networks.
+
+- Sort Blog Posts: Implement sorting functionality, allowing users to sort blog posts by date, popularity, or category. This will enhance the user experience by making it easier to find the most relevant or recent content quickly and efficiently.
+
+- Search Blog Posts: A search feature will be introduced, enabling users to search for blog posts using keywords or phrases. This will help users find specific content more easily, improving the overall usability and accessibility of the site.
+
+- Follow Other Users: Users will have the ability to follow other users, creating a more interconnected and community-driven platform. By following other users, they can stay updated with new posts and activities from their favorite bloggers, fostering engagement and interaction within the community.
+
+Reply to Comments: A feature that allows users to reply directly to comments on blog posts will facilitate more dynamic and threaded discussions, enabling users to engage in meaningful conversations and interactions within the comments section.

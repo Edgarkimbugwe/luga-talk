@@ -245,9 +245,7 @@ p {
 
 }
 
-
-
-@media (max-width: 1380px) {
+@media (max-width: 1800px) {
     .form-content-section {
         padding: 8px;
     }

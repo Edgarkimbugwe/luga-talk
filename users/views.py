@@ -34,12 +34,10 @@ def profile(request):
             user_form.save()
             profile_form.save()
 
-            # Set a first-party cookie after profile update
-            response = HttpResponse('Your profile has been updated successfully!')
-            response.set_cookie('profile_updated', 'true', max_age=3600, secure=True, httponly=True, samesite='Strict')
-            return response
-
+            # Set the success message
             messages.success(request, 'Your account has successfully been updated!')
+
+            # Redirect to the profile page
             return redirect('profile')
     
     else:
@@ -69,6 +67,6 @@ def delete_account(request):
         logout(request)
 
         messages.success(request, 'Your account has been deleted successfully.')
-        return redirect('home')  # Replace 'home' with your home page URL name
+        return redirect('home')
 
     return render(request, 'users/delete_account.html', {'user': request.user})

@@ -107,7 +107,7 @@ def create_blogpost(request):
             blog_post.status = 0
             blog_post.save()
             messages.success(request, 'Your blog post has been created and is pending approval')
-            return redirect('home') 
+            return redirect('user_blogposts') 
     else:
         form = BlogPostForm()
     
