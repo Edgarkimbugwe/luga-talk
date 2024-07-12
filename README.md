@@ -53,6 +53,13 @@ Developer: Edgar Kimbugwe <br>
     5. [User Account Management](#user-account-management)
     6. [Navigation](#navigation)
     7. [Future Features](#future-features)
+8. [Testing](#testing)
+9. [Bugs](#bugs)
+    1. [Known bugs](#known-bugs)
+    2. [Fixed bugs](#fixed-bugs)
+10. [Deployment](#deployment)
+11. [Credits](#credits)
+12. [Acknowledgements](#acknowledgements)
 
 ## Project Goals
 
@@ -357,3 +364,87 @@ As observed in the Todo list, there are still some exciting stories that are des
 - Follow Other Users: Users will have the ability to follow other users, creating a more interconnected and community-driven platform. By following other users, they can stay updated with new posts and activities from their favorite bloggers, fostering engagement and interaction within the community.
 
 Reply to Comments: A feature that allows users to reply directly to comments on blog posts will facilitate more dynamic and threaded discussions, enabling users to engage in meaningful conversations and interactions within the comments section.
+
+## Testing
+
+
+
+To view the complete testing details and results, please [click here](TESTING.md).
+
+
+[Back up](#table-of-content)
+
+## Bugs
+
+### Known bugs
+
+
+### Fixed bugs 
+
+
+[Back up](#table-of-content)
+
+
+## Deployment
+The website was deployed using Heroku by following these steps:
+1. Set DEBUG to False in the settings.py file.
+2. Commit and push your code to the GitHub repository.
+3. Clear the 'static' folder in Cloudinary to ensure the latest static files are used during deployment. This step is important to avoid any potential conflicts between cached versions of static files and the updated versions being deployed. Clearing the 'static' folder ensures that the latest versions of static files are used during the deployment process, preventing any eTag errors or inconsistencies.
+4. Navigate to the project's deploy page in Heroku.
+5. Choose the manual deployment option to deploy the latest code changes.
+
+You can for fork the repository by following these steps:
+1. Go to the GitHub repository
+2. Click on Fork button in upper right hand corner
+3. Wait for the forking process to complete. Once done, you will have a copy of the repository in your GitHub account.
+
+You can clone the repository by following these steps:
+1. Go to the GitHub repository 
+2. Locate the Code button above the list of files and click it 
+3. Select your preferred method for cloning: HTTPS, SSH, or GitHub CLI, and click the copy button to copy the repository URL to your clipboard.
+4. Open Git Bash (or your preferred terminal).
+5. Change the current working directory to the location where you want the cloned directory to be created.
+6. Type the command **'git clone'** followed by the URL you copied in step 3. The command should look like this: **git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY**.
+7.Press Enter to create your local clone.
+
+[Back up](#table-of-content)
+
+## Credits
+I would like to express my sincere gratitude to the following resources, which have been instrumental in the development of the Luga|Talk project:
+
+- First i would liek to appreciate, code institute 'I think I therefore blog' walk through project which gave me a clear understanding of what i have to do for my project. 
+
+### Media
+- Images are taken from [Unsplash](https://unsplash.com/)
+
+### Django Documentation:
+The official Django documentation has been an essential resource for the project, offering detailed guidance on models, forms, templates, and many other facets of Django development.
+- [Models](https://docs.djangoproject.com/en/4.2/topics/db/models/)
+- [Model instance reference](https://docs.djangoproject.com/en/4.2/ref/models/instances/)
+- [Model Field Types](https://docs.djangoproject.com/en/4.2/ref/models/fields/#model-field-types)
+- [CSRF Trusted Origins](https://docs.djangoproject.com/en/4.0/ref/settings/#csrf-trusted-origins)
+- [Adding Extra Fields to a Register Form](https://forum.djangoproject.com/t/adding-extra-fields-to-a-register-form/14922)
+- [Built-in template tags and filters](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/)
+- [Django Templates: Built-In Tags and Filters](https://realpython.com/django-templates-tags-filters/)
+- [Creating forms from models](https://docs.djangoproject.com/en/4.2/topics/forms/modelforms/)
+- [Signals](https://docs.djangoproject.com/en/4.2/topics/signals/)
+
+### Other open-source projects, packages, tutorials, forums and youtube channels: 
+Luga|Talk leverages open-source projects and packages, including Django Measurement and Django Crispy Forms, significantly improving the application's functionality and user experience.
+
+- [crispy-bootstrap5](https://github.com/django-crispy-forms/crispy-bootstrap5)
+- [Django - User Profile](https://dev.to/earthcomfy/django-user-profile-3hik)
+- [Django Forum - override model save method](https://forum.djangoproject.com/t/override-model-save-method/9555)
+- [Stackoverflow - How to properly design my models for likes?](https://stackoverflow.com/questions/69075884/how-to-properly-design-my-models-for-likes)
+- [Real Python - Build a Blog From Scratch With Django](https://realpython.com/build-a-blog-from-scratch-django/)
+- [Legion Script - Build a Blog using Django, Python, and Bootstrap](https://www.youtube.com/watch?v=sMqDJovFO-Y)
+
+## Acknowledgements
+The following tutorials ([Django-Blog by Legionscript](https://github.com/legionscript/Django-Blog) and [Python Django Tutorial: Full-Featured Web App](https://youtu.be/UmljXZIypDc)), offered crucial guidance and inspiration throughout the development of this project. Essential learnings from these tutorials were:
+- Blog Post Views: The tutorials provided an understanding into creating views for managing blog posts.
+- Custom User Model: Detailed view on how to develop a custom user model extending the default Django user model, offering insights into adding extra fields, such as a profile image that enable more personalized user profiles.
+- User Registration: Create a user registration view using the UserCreationForm, handling form validation, and displaying success messages upon successful registration.
+- Profile Management: Creating views for profile editing and updating, including the use of ModelForms and handling form submissions to update the user model and associated profile data.
+- Authentication and Authorization: Understanding the implemention of login and logout views using Django's built-in authentication system with an explaination of how to utilize the system's features for secure user authentication and authorization.
+
+I would like to express my gratitude and extend my thanks to my mentor Spencer Barriball my mentor, for his indispensable feedback, advice, guidance, and unwavering support throughout this journey AND the Code Institute Slack community platform especially 'community-sweden' which has been a great source of insights and solutions to certain problems encountered througt the project.
