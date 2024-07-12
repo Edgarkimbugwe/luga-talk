@@ -365,12 +365,12 @@ As observed in the Todo list, there are still some exciting stories that are des
 
 Reply to Comments: A feature that allows users to reply directly to comments on blog posts will facilitate more dynamic and threaded discussions, enabling users to engage in meaningful conversations and interactions within the comments section.
 
+[Back up](#table-of-content)
+
 ## Testing
+The Luga|Talk website was rigorously tested to ensure robust performance, accessibility, and functionality. The comprehensive testing process included performance evaluations, browser compatibility, accessibility assessments, cross-device testing, code validation and user story testing. 
 
-
-
-To view the complete testing details and results, please [click here](TESTING.md).
-
+For testing details and results, [click here](TESTING.md).
 
 [Back up](#table-of-content)
 
