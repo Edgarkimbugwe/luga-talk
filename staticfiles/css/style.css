@@ -47,7 +47,6 @@ p {
     object-fit: cover; /* Ensures the image covers the container without stretching */
 }
 
-
 /* Base class for common styles */
 .content-section {
     background: rgba(255, 240, 245, 0.4);
