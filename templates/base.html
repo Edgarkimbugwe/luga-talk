@@ -25,14 +25,14 @@
         Language">
 
     <!-- Google Fonts CSS - Preconnect and Link (Critical CSS) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" defer>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin defer>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,700;1,400&family=Roboto&display=swap"
-        rel="stylesheet" defer>
+        rel="stylesheet">
 
     <!-- Fontawesome - Script -->
-    <script src="https://kit.fontawesome.com/c3c0f5e49e.js" crossorigin="anonymous" defer>
+    <script src="https://kit.fontawesome.com/c3c0f5e49e.js" crossorigin="anonymous">
         </script>
 
     <!-- Bootstrap CSS - Link (Critical CSS) -->
@@ -43,7 +43,7 @@
         crossorigin="anonymous">
 
     <!-- Custom CSS - Defer (Non-Critical CSS) -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" defer>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <!-- Cloudinary Widget - Script (Non-Critical JS) -->
     <script src="https://widget.cloudinary.com/v2.0/global/all.js" defer></script>
@@ -85,7 +85,7 @@
 
     <main class="main-bg flex-grow-1">
         <!-- Displaying Django message alerts -->
-        <section class="container mt-5 pt-3">
+        <div class="container mt-5 pt-3">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     {% if messages %}
@@ -99,9 +99,9 @@
                     {% endif %}
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section class="container">
+        <div class="container">
             <div class="row align-items-stretch">
                 <div class="col-md-9">
                     {% block content %}
@@ -130,7 +130,7 @@
                     {% endblock sidebar %}
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <!-- Footer -->

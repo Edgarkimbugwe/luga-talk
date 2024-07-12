@@ -20,11 +20,11 @@
                                 <div class="col-md-4">
                                     <div class="image-container">
                                         {% if "placeholder" in blogpost.featured_image.url %}
-                                        <img class="card-img-top img-fluid" src="{% static '/images/books2.webp' %}" 
-                                            alt="placeholder image" width="100%" height="auto" loading="lazy">
+                                        <img class="card-img-top img-fluid responsive-img" src="{% static '/images/books2.webp' %}" 
+                                            alt="placeholder image" loading="lazy">
                                         {% else %}
-                                        <img class="card-img-top img-fluid" src=" {{ blogpost.featured_image.url }}" 
-                                            alt="{{ post.title }}" width="100%" height="auto" loading="lazy">
+                                        <img class="card-img-top img-fluid responsive-img" src=" {{ blogpost.featured_image.url }}" 
+                                            alt="{{ post.title }}" loading="lazy">
                                         {% endif %}
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
             {% endif %}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            <li><a href="?page={{ page_obj.paginator.num_pages }}" class="page-link"> Last &raquo;</a></li>
+            <li><a href="?page={{ page_obj.paginator.num_pages }}" class="page-link"> LAST &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
