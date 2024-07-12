@@ -9,13 +9,17 @@
 		<ul>
 		{% for blogpost in blogposts %}
 			<li>
-				<a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a> 
-				&nbsp;|
-				{% if user == blogpost.author %}
-				<a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
-				&nbsp;|
-				<a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
-				{% endif %} 
+				{% if blogpost.status == 1 %}
+                    <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
+                {% else %}
+                    {{ blogpost.title }} <em>(Blog Post not yet approved)</em>
+                {% endif %}
+                &nbsp;|
+                {% if user == blogpost.author %}
+                    <a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
+                    &nbsp;|
+                    <a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
+                {% endif %}
 			</li>
 			<br>
 		{% empty %}
