@@ -20,10 +20,10 @@
                                 <div class="col-md-4">
                                     <div class="image-container">
                                         {% if "placeholder" in blogpost.featured_image.url %}
-                                        <img class="card-img-top img-fluid responsive-img" src="{% static '/images/books2.webp' %}" 
+                                        <img class="card-img-top img-fluid" src="{% static '/images/books2.webp' %}" 
                                             alt="placeholder image" loading="lazy">
                                         {% else %}
-                                        <img class="card-img-top img-fluid responsive-img" src=" {{ blogpost.featured_image.url }}" 
+                                        <img class="card-img-top img-fluid" src=" {{ blogpost.featured_image.url }}" 
                                             alt="{{ post.title }}" loading="lazy">
                                         {% endif %}
                                     </div>
