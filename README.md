@@ -377,9 +377,14 @@ To view the complete testing details and results, please [click here](TESTING.md
 ## Bugs
 
 ### Known bugs
+- [Content Field Expanding Beyond Content Section on Large Screens:](https://github.com/users/Edgarkimbugwe/projects/12/views/1?pane=issue&itemId=70784683) When the screen width exceeds 1800 pixels, the content field expands to the right, beyond the content section, causing layout issues.
+
+Attempts to Fix: Applied a @media (min-width: 1800px) query to set a max-width value for the iframe within the content field, but this approach did not resolve the issue
 
 
-### Fixed bugs 
+### Fixed bugs
+- [Unapproved Posts Appearing in Owner's Blog Posts:](https://github.com/users/Edgarkimbugwe/projects/12/views/1?pane=issue&itemId=70779798) Previously, unapproved posts were being listed in the owner's blog posts, although they were not viewable and redirected to a 404 error page. This behavior was potentially confusing for the owner. This issue was resolved, ensuring that only approved posts are displayed in the owner's blog posts section.
+- [Success Message on Profile Update Opening a New Page:](https://github.com/users/Edgarkimbugwe/projects/12/views/1?pane=issue&itemId=70791965) The success message rendered to the user upon updating their profile was previously opening a new blank page instead of displaying the message at the top of the profile page. This issue has been fixed, and the success message now properly appears at the top of the profile page.
 
 
 [Back up](#table-of-content)
