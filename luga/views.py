@@ -9,7 +9,9 @@ from .forms import CommentForm, BlogPostForm
 from django.http import HttpResponse
 from django.views.decorators.cache import cache_page
 
+
 STATUS = ((0, "Draft"), (1, "Published"))
+
 
 # Create your views here.
 class PostList(generic.ListView):
@@ -21,6 +23,7 @@ class PostList(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['post_list'] = context['object_list']
         return context
+
 
 def blogpost_detail(request, slug):
     blogpost = get_object_or_404(BlogPost, slug=slug, status=1)
@@ -37,12 +40,17 @@ def blogpost_detail(request, slug):
 
             # Example of setting a first-party cookie
             response = HttpResponse('Comment submitted successfully!')
-            response.set_cookie('comment_submitted', 'true', max_age=3600, secure=True, httponly=True, samesite='Strict')
+            response.set_cookie(
+                'comment_submitted', 'true',
+                max_age=3600, secure=True, httponly=True, samesite='Strict')
 
-            messages.success(request, 'Your comment has been submitted and is awaiting approval.')
+            messages.success(
+                request,
+                'Your comment has been submitted and is awaiting approval.')
             return redirect('blogpost_detail', slug=slug)
         else:
-            messages.error(request, 'Error submitting comment. Please try again.')
+            messages.error(
+                request, 'Error submitting comment. Please try again.')
     else:
         comment_form = CommentForm()
 
@@ -52,6 +60,7 @@ def blogpost_detail(request, slug):
         "comment_count": comment_count,
         "comment_form": comment_form,
     })
+
 
 def comment_edit(request, slug, comment_id):
     """
@@ -69,16 +78,20 @@ def comment_edit(request, slug, comment_id):
             comment.post = blogpost
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment has been updated! successfully.')
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment has been updated! successfully.')
         else:
             messages.add_message(request, messages.ERROR,
                                  'Error updating comment!')
 
     return HttpResponseRedirect(reverse('blogpost_detail', args=[slug]))
 
+
 def index(request):
     post_list = BlogPost.objects.select_related('author').all()
     return render(request, 'index.html', {'post_list': post_list})
+
 
 def comment_delete(request, slug, comment_id):
     """
@@ -92,7 +105,9 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.success(request, 'Comment deleted successfully.')
     else:
-        messages.error(request, 'You are not authorized to delete this comment.')
+        messages.error(
+            request,
+            'You are not authorized to delete this comment.')
 
     return HttpResponseRedirect(reverse('blogpost_detail', args=[slug]))
 
@@ -106,11 +121,13 @@ def create_blogpost(request):
             blog_post.author = request.user
             blog_post.status = 0
             blog_post.save()
-            messages.success(request, 'Your blog post has been created and is pending approval')
-            return redirect('user_blogposts') 
+            messages.success(
+                request,
+                'Your blog post has been created and is pending approval')
+            return redirect('user_blogposts')
     else:
         form = BlogPostForm()
-    
+
     return render(request, 'luga/create_blogpost.html', {'form': form})
 
 
@@ -118,11 +135,13 @@ class AboutView(TemplateView):
     template_name = 'luga/about.html'
     extra_context = {'title': 'About'}
 
-#function that will retrieve the blog posts created by the logged-in user
+
+# function that will retrieve the blog posts created by the logged-in user
 @login_required
 def user_blogposts(request):
     blogposts = BlogPost.objects.filter(author=request.user)
-    liked_posts = Like.objects.filter(user=request.user, liked=True).select_related('post')
+    liked_posts = Like.objects.filter(
+        user=request.user, liked=True).select_related('post')
     return render(request, 'luga/user_blogposts.html', {
         'blogposts': blogposts,
         'liked_posts': [like.post for like in liked_posts],
@@ -135,10 +154,12 @@ def like_blogpost(request, post_id):
     if blogpost.author == request.user:
         messages.warning(request, 'You cannot like your own blog post!')
         return redirect('blogpost_detail', slug=blogpost.slug)
-    like, created = Like.objects.get_or_create(post=blogpost, user=request.user)
+    like, created = Like.objects.get_or_create(
+        post=blogpost, user=request.user)
     like.liked = not like.liked
     like.save()
     return redirect('blogpost_detail', slug=blogpost.slug)
+
 
 @login_required
 def remove_favorite(request, post_id):
@@ -147,9 +168,11 @@ def remove_favorite(request, post_id):
         like = get_object_or_404(Like, post=blogpost, user=request.user)
         like.liked = False
         like.save()
-        messages.success(request, 'The post has been removed from your favorites.')
+        messages.success(
+            request, 'The post has been removed from your favorites.')
         return redirect('user_blogposts')
-    return render(request, 'luga/remove_favorite.html', {'blogpost': blogpost})
+    return render(
+        request, 'luga/remove_favorite.html', {'blogpost': blogpost})
 
 
 @login_required
@@ -165,7 +188,10 @@ def blogpost_edit(request, slug):
             return redirect('blogpost_detail', slug=slug)
     else:
         form = BlogPostForm(instance=blogpost)
-    return render(request, 'luga/blogpost_edit.html', {'form': form, 'blogpost': blogpost})
+    return render(
+        request,
+        'luga/blogpost_edit.html', {'form': form, 'blogpost': blogpost})
+
 
 @login_required
 def blogpost_delete(request, slug):
@@ -174,15 +200,17 @@ def blogpost_delete(request, slug):
         blogpost.delete()
         messages.success(request, 'Blog post deleted successfully.')
         return redirect('user_blogposts')
-    return render(request, 'luga/blogpost_delete.html', {'blogpost': blogpost})
+    return render(
+        request, 'luga/blogpost_delete.html', {'blogpost': blogpost})
 
 
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
 
+
 def custom_500(request):
     return render(request, '500.html', status=500)
 
-#def test_500(request):
+# def test_500(request):
     # This will raise an exception to test the 500 error page
-    #raise Exception("Test 500 error")
+    # raise Exception("Test 500 error")

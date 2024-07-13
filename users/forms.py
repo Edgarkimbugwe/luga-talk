@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 
+
 # Fileds that show when user opts to register for an account
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -18,6 +19,7 @@ class UserRegisterForm(UserCreationForm):
             'password2'
             ]
 
+
 # update form with specific fileds that the user
 # can update on the profile page
 class UserUpdateForm(forms.ModelForm):
@@ -31,4 +33,4 @@ class UserUpdateForm(forms.ModelForm):
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['image',]
+        fields = ['image']

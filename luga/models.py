@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
+
 # Create your models here.
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -13,20 +14,19 @@ class BlogPost(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='luga_posts'
     )
-    featured_image = CloudinaryField('image', default='placeholder', blank=True)
+    featured_image = CloudinaryField(
+        'image', default='placeholder', blank=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
-    updated_on =models.DateTimeField(auto_now=True)
-
+    updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:
         """
         To order blog posts, recent posts appear on top
         """
         ordering = ["-created_on"]
-    
 
     def __str__(self):
         """
@@ -39,16 +39,16 @@ class BlogPost(models.Model):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
+
 class Comment(models.Model):
     post = models.ForeignKey(
         BlogPost, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='commenter')
-    text = models.TextField()  
+    text = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     approved = models.BooleanField(default=False)
-
 
     class Meta:
 
@@ -64,9 +64,12 @@ class Comment(models.Model):
         """
         return f"Comment by {self.author} on {self.post}"
 
+
 class Like(models.Model):
-    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='likes')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    post = models.ForeignKey(
+        BlogPost, on_delete=models.CASCADE, related_name='likes')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True, blank=True)
     liked = models.BooleanField(default=False)
 
     def __str__(self):

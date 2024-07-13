@@ -2,10 +2,12 @@ from django_summernote.widgets import SummernoteWidget
 from .models import Comment, BlogPost
 from django import forms
 
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('text',)
+
 
 class BlogPostForm(forms.ModelForm):
     class Meta:
