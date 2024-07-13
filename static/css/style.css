@@ -141,6 +141,13 @@ p {
     object-fit: cover; /* Ensures the image covers the container without stretching */
 }
 
+ul.blog-posts-list li, .liked-posts-list li {
+    margin-bottom: 10px;
+}
+
+ul.blog-posts-list li a, .liked-posts-list li a {
+    text-decoration: none; /* Optional: Remove underline from links */
+}
 
 .blogpost-link {
     text-decoration: none;
