@@ -157,3 +157,12 @@ The following browsers were used to test the website
 
 [Back to the top](#table-of-content)
 
+## Manual Testing
+
+### Testing user stories
+
+#### As a first-time user...
+| **User Story** | **Action** | **Expected Result** | **Pass** |
+--- | --- | --- | :---:
+|[I can create an account so that I can interact with blog posts](https://github.com/users/Edgarkimbugwe/projects/12/views/1?pane=issue&itemId=65624433)|Click on the "register" navigation link or the signup button on the about page|The user should be redirected to the register form|:white_check_mark:
+|[I can see the about page of the blog so that have an insight of blogs posted](https://github.com/users/Edgarkimbugwe/projects/12/views/1?pane=issue&itemId=65671373)|Click on the "About" button in the navigation bar on the landing page|The user should be directed to the About page|:white_check_mark:
