@@ -39,15 +39,16 @@ All pages were validated, and the code was pasted in. I applied a filter to remo
 |login| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/login.png)</details>| :white_check_mark:
 |profile| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/profile.png)</details>| :white_check_mark:
 |logout| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/logout.png)</details>| :white_check_mark:
-|list_card| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/create_blogpost.png)</details>| :white_check_mark:
-|home| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/user_blogposts.png)</details>| :white_check_mark:
-|myrecipes| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_detail.png)</details>| :white_check_mark:
-|favorites| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_edit.png)</details>| :white_check_mark:
-|cookbook_links| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_delete.png)</details>| :white_check_mark:
-|recipe_form| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/remove_favorite.png)</details>| :white_check_mark:
-|pagination| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/delete_account.png)</details>| :white_check_mark:
-|recipe_detail| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/400.png)</details>| :white_check_mark:
-|recipe_confirmation_delete| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/505.png)</details>| :white_check_mark:
+
+|create_blogpost| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/create_blogpost.png)</details>| :white_check_mark:
+|user_blogposts| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/user_blogposts.png)</details>| :white_check_mark:
+|blogpost_detail| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_detail.png)</details>| :white_check_mark:
+|blogpost_detail| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_edit.png)</details>| :white_check_mark:
+|blogpost_delete| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_delete.png)</details>| :white_check_mark:
+|remove_favorite| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/remove_favorite.png)</details>| :white_check_mark:
+|delete_account| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/delete_account.png)</details>| :white_check_mark:
+|400_page| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/400.png)</details>| :white_check_mark:
+|500_page| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/505.png)</details>| :white_check_mark:
 
 ### CSS Validation
 To validate the css code for Luga|Talk, [W3C Jigsaw](https://jigsaw.w3.org/css-validator/) was used. A tool developed by the World Wide Web Consortium (W3C), a modular web server platform designed to explore and implement web technologies. It serves as a reference implementation of the HTTP protocol, offering a customizable framework for experimenting with new standards and functionalities. As a tool that supports validation and checks for HTML and CSS code correctness. It ensures web pages adhere to W3C standards, fostering interoperability and accessibility across different web environments.
@@ -76,5 +77,20 @@ Note: Under 'View Result' expand the image by clicking onto it to properly view 
 |users/models | One line too long because of URL |![Result](/docs/validation/pep8/users-models.png)| :white_check_mark:
 |users/signals | All clear, no errors found | ![Result](/docs/validation/pep8/users-signals.png)| :white_check_mark:
 |users/views | All clear, no errors found |![Result](/docs/validation/pep8/users-views.png)| :white_check_mark:
+
+[Back to the top](#table-of-content)
+
+## Accessibility
+To access the accessibility of the website, [The WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) was used to identify potential accessibility issues and provides guidance on how to improve the accessibility of web content.
+
+The website generated no errors (<details><summary>See screenshort</summary><img src="docs/validation/wave-testing.png"></details>), not even contast errors. However there was need for accessibility improvements related to aria-labels and adjacent to each other. 
+
+- Removed aria-label from Blog Post Link: To improve accessibility, I removed the aria-label attribute from the blog post links. The aria-label was deemed unnecessary as it duplicated the information already present in the link text, which could confuse screen reader users. This change ensures that content is more straightforward and accessible for those using screen readers.
+
+- Simplified Logo: Simplified the logo by removing the link from it. The logo originally linked to the same URL as the "Home" link immediately next to it, making the link redundant. By removing the link from the logo and maintaining its styling, I streamlined the navigation and reduced repetitive links, thus enhancing overall accessibility.
+
+These changes were made to ensure a better and more accessible user experience for all visitors, including those who rely on assistive technologies.
+
+By utilizing the WAVE tool, I obtained crucial insights into my website's accessibility. Although I have opted not to address certain issues currently, I am dedicated to ensuring an inclusive user experience. I will persist in seeking opportunities to enhance accessibility moving forward.
 
 [Back to the top](#table-of-content)
