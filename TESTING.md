@@ -39,11 +39,10 @@ All pages were validated, and the code was pasted in. I applied a filter to remo
 |login| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/login.png)</details>| :white_check_mark:
 |profile| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/profile.png)</details>| :white_check_mark:
 |logout| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/logout.png)</details>| :white_check_mark:
-
 |create_blogpost| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/create_blogpost.png)</details>| :white_check_mark:
 |user_blogposts| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/user_blogposts.png)</details>| :white_check_mark:
 |blogpost_detail| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_detail.png)</details>| :white_check_mark:
-|blogpost_detail| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_edit.png)</details>| :white_check_mark:
+|blogpost_edit| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_edit.png)</details>| :white_check_mark:
 |blogpost_delete| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/blogpost_delete.png)</details>| :white_check_mark:
 |remove_favorite| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/remove_favorite.png)</details>| :white_check_mark:
 |delete_account| No errors | <details><summary>Screenshot of result</summary>![Result](/docs/validation/html/delete_account.png)</details>| :white_check_mark:
@@ -84,7 +83,7 @@ Note: Under 'View Result' expand the image by clicking onto it to properly view 
 To access the accessibility of the website, [The WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) was used to identify potential accessibility issues and provides guidance on how to improve the accessibility of web content.
 
 The website generated no errors, not even contast errors. However there was need for accessibility improvements related to aria-labels and adjacent to each other.
-(<details><summary>See screenshort</summary><img src="docs/validation/wave-testing.png"></details>)
+<details><summary>See screenshort</summary><img src="docs/validation/wave-testing.png"></details>
 
 - Removed aria-label from Blog Post Link: To improve accessibility, I removed the aria-label attribute from the blog post links. The aria-label was deemed unnecessary as it duplicated the information already present in the link text, which could confuse screen reader users. This change ensures that content is more straightforward and accessible for those using screen readers.
 
@@ -95,3 +94,66 @@ These changes were made to ensure a better and more accessible user experience f
 By utilizing the WAVE tool, I obtained crucial insights into my website's accessibility. Although I have opted not to address certain issues currently, I am dedicated to ensuring an inclusive user experience. I will persist in seeking opportunities to enhance accessibility moving forward.
 
 [Back to the top](#table-of-content)
+
+## Performance 
+The LuGa|Talk website was assessed with Google Lighthouse via Google Chrome Developer Tools. Performance scores were evaluated for both desktop and mobile devices.
+
+### Desktop Performance
+- The average score for the pages was 96/100 and the majority of the pages getting an excellent performance of 99/100
+
+| **Tested** | **Performance Score** | **View Result** | **Pass** |
+--- | --- | --- | :---:
+|index| 97 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/index.png)</details> | :white_check_mark:
+|about| 99 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/about.png)</details> | :white_check_mark:
+|Register| 99 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/register.png)</details> | :white_check_mark:
+|login | 99 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/login.png)</details> | :white_check_mark:
+|profile| 80 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/profile.png)</details> | :white_check_mark:
+|logout| 98 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/logout.png)</details> | :white_check_mark:
+|create_blogpost| 99 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/create_blogpost.png)</details> | :white_check_mark:
+|user_blogposts| 99 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/user_blogposts.png)</details> | :white_check_mark:
+|blogpost_detail| 99 / 100| <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/blogpost_detail.png)</details> | :white_check_mark:
+|blogpost_edit| 99 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/blogpost_edit.png)</details> | :white_check_mark:
+|blogpost_delete| 99 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/blogpost_delete.png)</details> | :white_check_mark:
+|remove_favorite| 99 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/remove_favorite.png)</details> | :white_check_mark:
+|delete_account| 81 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/delete_account.png)</details> | :white_check_mark:
+|404_page| 98 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/desktop/404.png)</details> | :white_check_mark:
+
+### Mobile Performance
+- The average score for the pages was 91/100 and the majority of the pages getting an impressive performance above 90/100
+
+| **Tested** | **Performance Score** | **View Result** | **Pass** |
+--- | --- | --- | :---:
+|index| 88 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/index.png)</details> | :white_check_mark:
+|about| 93 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/about.png)</details> | :white_check_mark:
+|Register| 91 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/register.png)</details> | :white_check_mark:
+|login | 95 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/login.png)</details> | :white_check_mark:
+|profile| 80 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/profile.png)</details> | :white_check_mark:
+|logout| 95 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/logout.png)</details> | :white_check_mark:
+|create_blogpost| 80 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/create_blogpost.png)</details> | :white_check_mark:
+|user_blogposts| 95 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/user_blogposts.png)</details> | :white_check_mark:
+|blogpost_detail| 95 / 100| <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/blogpost_detail.png)</details> | :white_check_mark:
+|blogpost_edit| 85 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/blogpost_edit.png)</details> | :white_check_mark:
+|blogpost_delete| 95 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/blogpost_delete.png)</details> | :white_check_mark:
+|remove_favorite| 93 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/remove_favorite.png)</details> | :white_check_mark:
+|delete_account| 94 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/delete_account.png)</details> | :white_check_mark:
+|404_page| 95 / 100 | <details><summary>Screenshot of result</summary>![Result](/docs/validation/lighthouse/mobile/404.png)</details> | :white_check_mark:88+93+91+95+80+95
+
+The LuGa|Talk website excels in performance on both desktop and mobile devices. This high performance ensures a smooth and responsive user experience across all devices. Users can enjoy quick loading times and seamless navigation whether on any device they use.
+
+[Back to the top](#table-of-content)
+
+## Performing tests on various devices 
+The website was tested on the following devices togeether with Google Chrome Developer Tools Device Toggeling option for all available device options.
+- Samsung Galaxy S20
+- Samsung Galaxy S22 ultra
+- Apple iPhone 15
+- Apple iphone 12 Pro Max
+
+## Browser compability
+The following browsers were used to test the website
+- Google Chrome
+- Microsoft Egde
+- Mozilla Firefox
+
+[Back to the top](#table-of-content)
+
