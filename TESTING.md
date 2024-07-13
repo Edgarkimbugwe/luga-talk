@@ -83,7 +83,8 @@ Note: Under 'View Result' expand the image by clicking onto it to properly view 
 ## Accessibility
 To access the accessibility of the website, [The WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) was used to identify potential accessibility issues and provides guidance on how to improve the accessibility of web content.
 
-The website generated no errors (<details><summary>See screenshort</summary><img src="docs/validation/wave-testing.png"></details>), not even contast errors. However there was need for accessibility improvements related to aria-labels and adjacent to each other. 
+The website generated no errors, not even contast errors. However there was need for accessibility improvements related to aria-labels and adjacent to each other.
+(<details><summary>See screenshort</summary><img src="docs/validation/wave-testing.png"></details>)
 
 - Removed aria-label from Blog Post Link: To improve accessibility, I removed the aria-label attribute from the blog post links. The aria-label was deemed unnecessary as it duplicated the information already present in the link text, which could confuse screen reader users. This change ensures that content is more straightforward and accessible for those using screen readers.
 
