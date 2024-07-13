@@ -21,7 +21,7 @@
                                     <div class="image-container">
                                         {% if "placeholder" in blogpost.featured_image.url %}
                                         <img class="card-img-top img-fluid" src="{% static '/images/books2.webp' %}" 
-                                            alt="placeholder image" loading="lazy">
+                                            alt="{{ post.title }}" loading="lazy">
                                         {% else %}
                                         <img class="card-img-top img-fluid" src=" {{ blogpost.featured_image.url }}" 
                                             alt="{{ post.title }}" loading="lazy">
@@ -39,7 +39,6 @@
                                             </div>
                                             <div>
                                                 <a href="{% url 'blogpost_detail' blogpost.slug %}"
-                                                    aria-label=" Read more about {{ post.title }}" 
                                                     class="more">
                                                     Full post <i class="fas fa-arrow-right"></i></a>
                                             </div>
