@@ -15,6 +15,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 24px;
 }
 
+.logo-size {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
 p {
     font-size: 16px;
 }
@@ -141,6 +146,13 @@ p {
     object-fit: cover; /* Ensures the image covers the container without stretching */
 }
 
+ul.blog-posts-list li, .liked-posts-list li {
+    margin-bottom: 10px;
+}
+
+ul.blog-posts-list li a, .liked-posts-list li a {
+    text-decoration: none; /* Optional: Remove underline from links */
+}
 
 .blogpost-link {
     text-decoration: none;
