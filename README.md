@@ -2,11 +2,11 @@ README
 
 # LuGa|Talk
 
-Welcome to Luga|Talk, where the vibrant beats of Luga-flow meet the rich tapestry of Luganda, also known as Ganda, spoken by millions in Uganda.
+Welcome to LuGa|Talk, where the vibrant beats of Luga-flow meet the rich tapestry of Luganda, also known as Ganda, spoken by millions in Uganda.
 
-Luga|Talk is more than just a blog; it's a celebration of culture, language,and connection. Just as Luga-flow infuses contemporary hip-hop with traditional Ugandan rhythms, our platform intends to also blend the beauty of Luganda with modern storytelling.
+LuGa|Talk is more than just a blog; it's a celebration of culture, language,and connection. Just as Luga-flow infuses contemporary hip-hop with traditional Ugandan rhythms, our platform intends to also blend the beauty of Luganda with modern storytelling.
 
-Discover the rhythm and melody of Luganda as you immerse yourself in our community. Whether you're here to learn, connect, or simply explore, Luga|Talk invites you to experience the warmthof Ugandan hospitality and embark on a journey of cultural understanding.
+Discover the rhythm and melody of Luganda as you immerse yourself in our community. Whether you're here to learn, connect, or simply explore, LuGa|Talk invites you to experience the warmthof Ugandan hospitality and embark on a journey of cultural understanding.
 
 Join us as we delve deeper into the heart of Luganda and embrace the spirit of Luga-flow. Let's journey together towards mastering this incredible language and embracing the diversity it embodies.
 
@@ -63,7 +63,7 @@ Developer: Edgar Kimbugwe <br>
 
 ## Project Goals
 
-At Luga|Talk, we aim to celebrate and promote the Luganda language and Ugandan culture through engaging content and a vibrant community. Our goals reflect the aspirations of our project, our users, and the site owners, ensuring a comprehensive and enriching experience for everyone involved.
+At LuGa|Talk, we aim to celebrate and promote the Luganda language and Ugandan culture through engaging content and a vibrant community. Our goals reflect the aspirations of our project, our users, and the site owners, ensuring a comprehensive and enriching experience for everyone involved.
 
 - Increase awareness and appreciation of Luganda globally by providing resources for learning and improving the language skills.
 - Highlight Buganda's cultural practices and traditions through shared stories, music, and other expressions unique to Buganda.
@@ -90,7 +90,7 @@ At Luga|Talk, we aim to celebrate and promote the Luganda language and Ugandan c
 ## User Experience
 
 ### Target Audience
-At Luga|Talk we will aim to the following target audience:
+At LuGa|Talk we will aim to the following target audience:
 
 - Individuals interested in learning Luganda, from beginners to advanced learners.
 - Ugandans living abroad who want to stay connected with their culture and language.
@@ -98,7 +98,7 @@ At Luga|Talk we will aim to the following target audience:
 - Linguists and language enthusiasts looking to expand their knowledge of lesser-known languages.
 
 ### User Requirements and Expectations
-When using the Luga|Talk blog platform, users can expect the following features and characteristics to meet their requirements:
+When using the LuGa|Talk blog platform, users can expect the following features and characteristics to meet their requirements:
 
 - Users expect tutorials, articles, and multimedia content to aid in understanding and learning about the Luganda language.
 - High-quality, diverse content that is both informative and entertaining, including stories, music, and cultural insights.
@@ -106,7 +106,7 @@ When using the Luga|Talk blog platform, users can expect the following features 
 - Personalized feature to store favorite blogs, track personal blog posts additions, and add comments to blog posts.
 - Access to a diverse collection of material in regard to Luganda as a language and the cultural and tradition of Buganda / Uganda.
 
-Luga|Talk aims to create an engaging platform for users to explore, discover, and share their love for learning and writing on a topic of their interest, the Luganda languange.
+LuGa|Talk aims to create an engaging platform for users to explore, discover, and share their love for learning and writing on a topic of their interest, the Luganda languange.
 
 ### User Stories
 
@@ -134,7 +134,7 @@ Luga|Talk aims to create an engaging platform for users to explore, discover, an
 [Back up](#table-of-content)
 
 ## Database
-Luga|Talk uses the following database scheme:
+LuGa|Talk uses the following database scheme:
 <details><summary>See Database Scheme</summary>
 <img src="docs/database.png">
 </details>
@@ -171,7 +171,7 @@ The color palette is thoughtfully chosen to reflect the cultural richness and vi
 The project utilizes the default fonts provided by Bootstrap 5, ensuring a clean and professional look that enhances the overall user experience. However, users have the flexibility to customize and style fonts during content creation and editing to add their unique touch.
 
 ### Structure
-The Luga|Talk features a user-friendly and intuitive design, ensuring easy navigation and comprehension for users. It is structured into distinct sections and pages as follows:
+The LuGa|Talk features a user-friendly and intuitive design, ensuring easy navigation and comprehension for users. It is structured into distinct sections and pages as follows:
 
 #### Before Logged In:
 
@@ -189,7 +189,7 @@ Upon logging in, users are still directed to the most recent posts however unlik
 - **Profile Page:** The profile page displays the user's profile information, including their bio, profile picture, and other relevant details. It allows users to update and customize their profile settings. At the top of this page, the link to the user's blog posts is available, so that the user gets access to their blog posts and liked posts under 'my favorite posts'.<br>
 - **Logout:** The "Logout" option allows users to securely log out of their accounts, ensuring the privacy and security of their personal information.<br>
 
-Luga|Talk's structured design ensures a seamless and enjoyable user experience, allowing users to effortlessly explore, contribute to, and manage their blog posts.
+LuGa|Talk's structured design ensures a seamless and enjoyable user experience, allowing users to effortlessly explore, contribute to, and manage their blog posts.
 
 ### Wireframes
 The wireframes visually depict various pages and features of the web application, serving as blueprints for designing each page. They provide a clear visualization of the user interface and overall user experience, created efficiently with Balsamiq—a tool designed for quick and intuitive sketching of design concepts.
@@ -243,7 +243,7 @@ PostgreSQL: A database-as-a-service solution used for the LuGa|Talk project, off
 - Git: A distributed version control system utilized for tracking changes in the project's source code.
 - GitHub: A web-based platform for hosting version control repositories, used for storing and managing the project's source code.
 - Gitpod: An online integrated development environment (IDE) used for developing and testing the LuGa|Talk project.
-- Heroku: A cloud platform for deploying and hosting web applications, used to deploy the Luga|Talk to a live server.
+- Heroku: A cloud platform for deploying and hosting web applications, used to deploy the LuGa|Talk to a live server.
 - Microsoft Photos: Utilized for image manipulation and design tasks for the project.
 - Balsamiq: A wireframing tool used to create mockups and prototypes for the project.
 - Google Fonts: A collection of free and open-source fonts used for typography.
@@ -281,7 +281,7 @@ User stories have been meticulously crafted, interconnected as GitHub issues, de
 Due to the urgency to meet deadlines, bugs encountered during development have not yet been logged in the Kanban board. However, they have been noted and the intention is to promptly log them. These bugs will be documented as GitHub issues, providing details on the specific issues, their impact, and steps to reproduce them. By linking these bugs in the README.md to their respective GitHub issues, users will be able to track the progress of bug resolution expecially by the help of related comments.
 
 ### Iterative Development Approach
-The Luga|Talk project embraces iterative development, fostering continuous improvement and progress despite the condensed timeline. This structured approach accommodates future iterations and enhancements, ensuring ongoing development and refinement within specified time constraints.
+The LuGa|Talk project embraces iterative development, fostering continuous improvement and progress despite the condensed timeline. This structured approach accommodates future iterations and enhancements, ensuring ongoing development and refinement within specified time constraints.
 
 ### Backlog and Subsequent Iterations 
 User stories are managed on the project board, with the "To do" column serving as the backlog for subsequent iterations.
@@ -313,7 +313,7 @@ Registered users can add, edit, and delete blogs from their profile.
 - Delete their own blog posts and be warned before talking the action to delete. <details><summary>See Screenshot</summary><img src="docs/features/deletepost.png"> 
 - Remove blog post from their favorites and be warned before talking the action to delete. <details><summary>See Screenshot</summary><img src="docs/features/removepost.png">
 
-The Luga|Talk project emphasizes CRUD functionality, allowing users to create, read, update, and delete blogs as they contribute to the language learning community.
+The LuGa|Talk project emphasizes CRUD functionality, allowing users to create, read, update, and delete blogs as they contribute to the language learning community.
 
 ### User Account Management:
 - LuGa|Talk provides robust user account management features, allowing users to easily sign up, log in, and manage their profiles. The platform ensures secure authentication, using industry-standard practices to protect user data and maintain privacy. This enhances overall user interaction, satisfaction, and security. Such validation at creation include is: 
@@ -368,7 +368,7 @@ Reply to Comments: A feature that allows users to reply directly to comments on 
 [Back up](#table-of-content)
 
 ## Testing
-The Luga|Talk website was rigorously tested to ensure robust performance, accessibility, and functionality. The comprehensive testing process included performance evaluations, browser compatibility, accessibility assessments, cross-device testing, code validation and user story testing. 
+The LuGa|Talk website was rigorously tested to ensure robust performance, accessibility, and functionality. The comprehensive testing process included performance evaluations, browser compatibility, accessibility assessments, cross-device testing, code validation and user story testing. 
 
 For testing details and results, [click here](TESTING.md).
 
@@ -415,7 +415,7 @@ You can clone the repository by following these steps:
 [Back up](#table-of-content)
 
 ## Credits
-I would like to express my sincere gratitude to the following resources, which have been instrumental in the development of the Luga|Talk project:
+I would like to express my sincere gratitude to the following resources, which have been instrumental in the development of the LuGa|Talk project:
 
 - First i would liek to appreciate, code institute 'I think I therefore blog' walk through project which gave me a clear understanding of what i have to do for my project. 
 
@@ -435,7 +435,7 @@ The official Django documentation has been an essential resource for the project
 - [Signals](https://docs.djangoproject.com/en/4.2/topics/signals/)
 
 ### Other open-source projects, packages, tutorials, forums and youtube channels: 
-Luga|Talk leverages open-source projects and packages, including Django Measurement and Django Crispy Forms, significantly improving the application's functionality and user experience.
+LuGa|Talk leverages open-source projects and packages, including Django Measurement and Django Crispy Forms, significantly improving the application's functionality and user experience.
 
 - [crispy-bootstrap5](https://github.com/django-crispy-forms/crispy-bootstrap5)
 - [Django - User Profile](https://dev.to/earthcomfy/django-user-profile-3hik)
