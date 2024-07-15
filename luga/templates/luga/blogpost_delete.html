@@ -13,12 +13,16 @@
               <div class="text-center">
                 <h1>Delete Blog Post</h1>
                 <br>
+                <!-- Display confirmation message -->
                 <p>Are you sure you want to delete</p>
                 <p><strong>{{ blogpost.title }}"?</strong></p>
                 <br>
+                <!-- Form to confirm deletion -->
                 <form method="post">
                 {% csrf_token %}
+                <!-- Submit button for deletion -->
                 <button type="submit" class="btn btn-danger">Delete</button>
+                <!-- Link to cancel deletion and go back to user's blog posts -->
                 <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
                 </form>
               </div>

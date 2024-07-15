@@ -3,9 +3,9 @@
 {% load crispy_forms_tags %}
 
 {% block head %}
-    <!-- Summernote CSS -->
+    <!-- Include Summernote CSS for rich text editor -->
     <link href="{% static 'django_summernote/summernote-bs4.min.css' %}" rel="stylesheet">
-    <!-- Summernote JavaScript -->
+    <!-- Include Summernote JavaScript for rich text editor -->
     <script src="{% static 'django_summernote/summernote-bs4.min.js' %}"></script>
     {{ block.super }}
 {% endblock head %}
@@ -13,16 +13,22 @@
 {% block content %}
 <div class="container mt-4">
     <div class="row justify-content-center">
+        <!-- Form content section for creating a new blog post -->
         <div class="form-content-section content-section offset-md-1 col-md-10 col-sm-10 p-4 rounded">
+            <!-- Form to create a new blog post -->
             <form method="POST" enctype="multipart/form-data">
+                <!-- CSRF token for form security -->
                 {% csrf_token %}
                 <fieldset class="form-group">
                     <legend class="border-bottom mb-4">Create a New Blog Post</legend>
                     <p>(Kindly upload a landscape image)</p>
+                    <!-- Render the form fields using crispy forms -->
                     {{ form|crispy }}
                 </fieldset>
                 <div class="form-group">
+                    <!-- Submit button to create the blog post -->
                     <button class="btn btn-outline-info" type="submit">Create Post</button>
+                    <!-- Cancel button to go back to user's blog posts -->
                     <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
                 </div>
             </form>
@@ -31,4 +37,5 @@
 </div>
 {% endblock content %}
 
+<!-- Custom JavaScript for the create blog post page -->
 <script src="{% static 'js/create.js' %}" defer></script>

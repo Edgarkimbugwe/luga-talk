@@ -1,43 +1,56 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Main container for the page -->
 <div class="container mt-4 d-flex justify-content-center align-items-center">
     <div class="content-section col-md-12 p-3 rounded">
+        <!-- Page title -->
         <h1>My Blog Posts</h1>
+        <!-- List of user's blog posts -->
         <ul class="blog-posts-list pt-2">
             {% for blogpost in blogposts %}
                 <li>
                     {% if blogpost.status == 1 %}
+                        <!-- Link to the detailed view of the blog post -->
                         <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
                     {% else %}
+                        <!-- Message indicating the blog post is not approved yet -->
                         {{ blogpost.title }} <em>(Blog Post not yet approved)</em>
                     {% endif %}
                     &nbsp;|
                     {% if user == blogpost.author %}
+                        <!-- Link to edit the blog post -->
                         <a href="{% url 'blogpost_edit' blogpost.slug %}">Edit</a>
                         &nbsp;|
+                        <!-- Link to delete the blog post -->
                         <a href="{% url 'blogpost_delete' blogpost.slug %}">Delete</a>
                     {% endif %}
                 </li>
             {% empty %}
+                <!-- Message indicating no blog posts are available -->
                 <li>No blog posts yet!</li>
             {% endfor %}
         </ul>
 
+        <!-- Section for favourite blog posts -->
         <h2 class="pt-3">Favourite Blog Posts</h2>
         <ul class="liked-posts-list pt-2">
             {% for blogpost in liked_posts %}
                 <li>
+                    <!-- Link to the detailed view of the favourite blog post -->
                     <a href="{% url 'blogpost_detail' blogpost.slug %}">{{ blogpost.title }}</a>
                     &nbsp;| By:
                     {{ blogpost.author }}
-                    &nbsp;| <a href="{% url 'remove_favorite' blogpost.id %}">Remove</a>
+                    &nbsp;| <!-- Link to remove the blog post from favourites -->
+                    <a href="{% url 'remove_favorite' blogpost.id %}">Remove</a>
                 </li>
             {% empty %}
+                <!-- Message indicating no favourite blog posts are available -->
                 <li>No favourite blog posts yet!</li>
             {% endfor %}
         </ul>
 
+        <!-- Links for navigation -->
         <p class="text-center pt-5">
             <a href="{% url 'home' %}">Back to blog posts</a>
             &nbsp;| &nbsp;

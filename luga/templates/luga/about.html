@@ -22,14 +22,14 @@
                         </p>
                         <p>
                             Luga|Talk is more than just a blog; it's a celebration of culture, 
-                            language,and connection. Just as Luga-flow infuses contemporary 
+                            language, and connection. Just as Luga-flow infuses contemporary 
                             hip-hop with traditional Ugandan rhythms, our platform intends to
                             also blend the beauty of Luganda with modern storytelling.
                         </p>
                         <p>
                             Discover the rhythm and melody of Luganda as you immerse yourself
                             in our community. Whether you're here to learn, connect, or simply
-                            explore, Luga|Talk invites you to experience the warmthof Ugandan 
+                            explore, Luga|Talk invites you to experience the warmth of Ugandan 
                             hospitality and embark on a journey of cultural understanding.
                         </p>
                         <p>
@@ -40,10 +40,12 @@
                         <hr class="w-70">
                         <div class="text-center">
                             {% if user.is_authenticated %}
+                                <!-- Button for authenticated users to check out new blog posts -->
                                 <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary">
                                     Check out for new Blog Posts and be part of the conversations
                                 </button></a>
                             {% else %}
+                                <!-- Buttons for non-authenticated users to sign up or log in -->
                                 <a href="{% url 'register' %}" class="btn btn-outline-secondary m-2">Sign Up</a>
                                 <a href="{% url 'login' %}" class="btn btn-outline-success m-2">Login</a>
                             {% endif %}

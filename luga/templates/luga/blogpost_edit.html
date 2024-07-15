@@ -3,9 +3,9 @@
 {% load crispy_forms_tags %}
 
 {% block head %}
-    <!-- Summernote CSS -->
+    <!-- Include Summernote CSS for rich text editor -->
     <link href="{% static 'django_summernote/summernote-bs4.min.css' %}" rel="stylesheet">
-    <!-- Summernote JavaScript -->
+    <!-- Include Summernote JavaScript for rich text editor -->
     <script src="{% static 'django_summernote/summernote-bs4.min.js' %}"></script>
     {{ block.super }}
 {% endblock head %}
@@ -13,12 +13,18 @@
 {% block content %}
 <div class="container mt-4">
   <div class="row justify-content-center">
+    <!-- Form content section for editing a blog post -->
     <div class="form-content-section content-section offset-md-1 col-md-10 col-sm-10 p-4 rounded">
+      <!-- Form to edit the blog post -->
       <form method="post" enctype="multipart/form-data">
         <legend class="border-bottom mb-4">Edit Blog Post</legend>
+        <!-- CSRF token for form security -->
         {% csrf_token %}
+        <!-- Render the form fields using crispy forms -->
         {{ form | crispy }}
+        <!-- Submit button to update the blog post -->
         <button type="submit" class="btn btn-outline-info">Update Blog</button>
+        <!-- Cancel button to go back to user's blog posts -->
         <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
         <br>
       </form>

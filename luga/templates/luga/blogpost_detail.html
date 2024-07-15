@@ -7,12 +7,13 @@
     <div class="container mt-2">
         <div class="row g-0 align-self-center">
             <div class="col-sm-8 masthead-text">
-                <!-- Post title goes in these h1 tags -->
+                <!-- Post title goes in these h2 tags -->
                 <h2 class="blogpost-title">{{ blogpost.title }}</h2>
-                <!-- Post author goes before the | the post's created date goes after -->
+                <!-- Post author goes before the | and the post's created date goes after -->
                 <p class="blogpost-subtitle">{{ blogpost.author }} | {{ blogpost.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-sm-4">
+                <!-- Display featured image if available, otherwise show a placeholder image -->
                 {% if "placeholder" in blogpost.featured_image.url %} 
                 <img class="card-img-top custom-responsive-img" 
                     src="{% static 'images/books2.jpg' %}" 
@@ -20,7 +21,7 @@
                 {% else %}
                 <img class="card-img-top custom-responsive-img" 
                     src="{{ blogpost.featured_image.url }}" 
-                    alt="{{ post.title }}" loading="lazy">
+                    alt="{{ blogpost.title }}" loading="lazy">
                 {% endif %}
             </div>
         </div>
@@ -30,14 +31,15 @@
         <div class="row">
             <div class="col card">
                 <div class="card-body">
-                    <!-- The post content goes inside the card-text. -->
-                    <!-- Use the | safe filter inside the template tags -->
+                    <!-- The post content goes inside the card-text -->
+                    <!-- Use the | safe filter inside the template tags to render HTML content safely -->
                     <p class="card-text">
                         {{ blogpost.content | safe }}
                     </p>
                 </div>
             </div>
         </div>
+        <!-- Display comment count and like count with icons -->
         <strong class="text-secondary">
             <i class="far fa-comments"></i> {{ comment_count }} &nbsp; &nbsp;
             <a href="{% url 'like_blogpost' blogpost.id %}">
@@ -46,6 +48,7 @@
         </strong>
         <br>
         <br>
+        <!-- Navigation links back to blog posts and to user's blog posts if authenticated -->
         <p class="text-center">
             <a href="{% url 'home' %}">Back to blog posts</a>
             {% if user.is_authenticated %}
@@ -54,13 +57,14 @@
             {% endif %}
         </p>
 
-        <!-- To display Comments -->
+        <!-- Display Comments Section -->
         <div class="row">
             <div class="col-md-8 card mb-4 mt-3">
                 <h3>Comments:</h3>
                 <div class="card-body">
-                    <!-- A for loop inside the empty control tags to iterate through each comment in comments -->
+                    <!-- Loop through each comment in comments -->
                     {% for comment in comments %}
+                    <!-- Display each comment with approval and edit/delete options for the author -->
                     <div class="p-2 comments{% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
                         <p class="fw-bold">
                             {{ comment.author }}
@@ -75,20 +79,22 @@
                         <p class="approval">This comment is awaiting approval</p>
                         {% endif %}
                         {% if user.is_authenticated and comment.author == user %}
+                        <!-- Edit and delete buttons for comment author -->
                         <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
                         <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
                         {% endif %}
                     </div>
-                    <!-- Our for loop ends here -->
+                    <!-- End of the loop for comments -->
                     {% endfor %}
                 </div>
             </div>
         </div>
-        <!-- Creating New Comments -->
+        <!-- Creating New Comments Section -->
         <div class="row">
             <div class="col-md-8 card mb-4 mt-3">
                 <div class="card-body">
                     {% if user.is_authenticated %}
+                    <!-- Form for authenticated users to leave a comment -->
                     <h3>Leave a comment:</h3>
                     <p>Posting as: {{ user.username }}</p>
                     <form id="commentForm" method="post" style="margin-top: 1.3em;">
@@ -97,6 +103,7 @@
                         <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
                     </form>
                     {% else %}
+                    <!-- Prompt for non-authenticated users to log in to comment -->
                     <p><a href="{% url 'login' %}">Log in</a> to leave a comment</p>
                     {% endif %}
                 </div>
@@ -104,7 +111,7 @@
         </div>
     </div>
 
-    <!-- Delete confirmation modal -->
+    <!-- Delete Confirmation Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

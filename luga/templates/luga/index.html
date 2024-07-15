@@ -12,51 +12,60 @@
         <!-- Blog Entries Column -->
         <div class="col-12 mt-4 left">
             <div class="row justify-content-center">
+                <!-- Loop through each blog post in the post_list -->
                 {% for blogpost in post_list %}
                 <div class="col-md-12 mx-auto content-section">
                     <div class="card mb-1">
                         <div class="card-body">
                             <div class="row">
+                                <!-- Column for the blog post image -->
                                 <div class="col-md-4">
                                     <div class="image-container">
+                                        <!-- Check if the blog post has a placeholder image -->
                                         {% if "placeholder" in blogpost.featured_image.url %}
                                         <img class="card-img-top img-fluid" src="{% static '/images/books2.webp' %}" 
                                             alt="{{ post.title }}" loading="lazy">
                                         {% else %}
-                                        <img class="card-img-top img-fluid" src=" {{ blogpost.featured_image.url }}" 
+                                        <img class="card-img-top img-fluid" src="{{ blogpost.featured_image.url }}" 
                                             alt="{{ post.title }}" loading="lazy">
                                         {% endif %}
                                     </div>
                                 </div>
+                                <!-- Column for the blog post content -->
                                 <div class="col-md-8 blogfield">
-                                        <h2 class="card-title">{{ blogpost.title }}</h2>
-                                        <p class="card-text">{{ blogpost.excerpt }}</p>
-                                        <hr>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <p class="card-text text-muted h6 mb-0">Author: {{ blogpost.author }}</p>
-                                                <p>{{ blogpost.created_on|date:"Y-m-d" }}</p>
-                                            </div>
-                                            <div>
-                                                <a href="{% url 'blogpost_detail' blogpost.slug %}"
-                                                    class="more">
-                                                    Full post <i class="fas fa-arrow-right"></i></a>
-                                            </div>
+                                    <!-- Blog post title -->
+                                    <h2 class="card-title">{{ blogpost.title }}</h2>
+                                    <!-- Blog post excerpt -->
+                                    <p class="card-text">{{ blogpost.excerpt }}</p>
+                                    <hr>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <!-- Blog post author and date -->
+                                            <p class="card-text text-muted h6 mb-0">Author: {{ blogpost.author }}</p>
+                                            <p>{{ blogpost.created_on|date:"Y-m-d" }}</p>
                                         </div>
+                                        <div>
+                                            <!-- Link to the full blog post -->
+                                            <a href="{% url 'blogpost_detail' blogpost.slug %}" class="more">
+                                                Full post <i class="fas fa-arrow-right"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Add a new row after every 6 blog posts -->
                 {% if forloop.counter|divisibleby:6 %}
             </div>
             <div class="row">
                 {% endif %}
                 {% endfor %}
             </div>
-            
         </div>
     </div>
+
+    <!-- Pagination controls -->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">

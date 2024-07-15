@@ -7,23 +7,25 @@
 {% endblock %}
 
 {% block content %}
+<!-- Main container for the 500 error page -->
 <div class="main-one-page text-center">
     <div class="p-5">
-      <div class="mask">
-        <div class="container d-flex h-100 justify-content-center">
-          <div class="text-dark row justify-content-center align-items-center">
-            <div class="col-md-12 offset-md-5 p-5 rounded">
-              <div class="content-section content-section-two">
-                
-                <h1>500 - Internal Server Error</h1>
-                <p>Oops! Something went wrong on our end. Please try again later.</p>
-                <a href="{% url 'home' %}">Go to Homepage</a>
-				
-              </div>
+        <div class="mask">
+            <div class="container d-flex h-100 justify-content-center">
+                <div class="text-dark row justify-content-center align-items-center">
+                    <div class="col-md-12 offset-md-5 p-5 rounded">
+                        <div class="content-section content-section-two">
+                            <!-- Heading for the 500 error -->
+                            <h1>500 - Internal Server Error</h1>
+                            <!-- Message indicating internal server error -->
+                            <p>Oops! Something went wrong on our end. Please try again later.</p>
+                            <!-- Link to redirect users to the homepage -->
+                            <a href="{% url 'home' %}">Go to Homepage</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 {% endblock %}

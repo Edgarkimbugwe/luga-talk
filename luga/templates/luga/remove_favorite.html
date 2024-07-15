@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<!-- Main container for the page -->
 <div class="main-one-page">
   <div class="p-5">
     <div class="mask">
@@ -11,20 +12,24 @@
           <div class="col-md-12 rounded">
             <div class="content-section content-section-two">
               <div class="text-center">
+                <!-- Page title -->
                 <h1>Remove Blog Post</h1>
                 <br>
                 <p>
-                Are you sure you want to remove 
-                    <strong>"{{ blogpost.title }}"</strong> from your favourite posts?
+                  <!-- Confirmation message to the user -->
+                  Are you sure you want to remove 
+                  <strong>"{{ blogpost.title }}"</strong> from your favourite posts?
                 </p>
                 <br>
+                <!-- Form for post deletion -->
                 <form method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger">Delete</button>
-                <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
+                  {% csrf_token %}
+                  <!-- Delete button -->
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                  <!-- Cancel button, redirects to user_blogposts page -->
+                  <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
                 </form>
               </div>
-      
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 {% load static %}
 
+<!-- Define URLs for various views -->
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
 {% url 'create-blogpost' as create_blogpost_url %}
@@ -36,7 +37,7 @@
 
     <!-- Fontawesome - Script -->
     <script src="https://kit.fontawesome.com/c3c0f5e49e.js" crossorigin="anonymous">
-        </script>
+    </script>
 
     <!-- Bootstrap CSS - Link (Critical CSS) -->
     <link
@@ -54,6 +55,7 @@
 
 <body class="d-flex flex-column h-100">
 
+    <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <span class="navbar-brand logo-size mr-4">LuGa|Talk</span>
@@ -101,6 +103,7 @@
             </div>
         </div>
 
+        <!-- Main content area -->
         <div class="container">
             <div class="row align-items-stretch">
                 <div class="col-md-9">
@@ -110,20 +113,19 @@
                 </div>
                 <div class="col-md-3">
                     {% block sidebar %}
+                    <!-- Sidebar content -->
                     <div class="content-section content-section-sidebar h-100 mt-4">
                         <h3 class="sidebar-title">Quick Links!</h3>
                         <div class="ps-3">
-                            <!-- The links in the sidebar are  -->
+                            <!-- The links in the sidebar are -->
                             <p><a href="{% url 'home' %}">Recent</a></p>
                             <p><a href="{% url 'about' %}">About Us</a></p>
                             <p><a href="https://bhtb.or.ug/news-events" target="_blank">
                                 Events</a></p>
                             <p><a href="https://learn-luganda.com/" target="_blank">
-                                Learn Luganda</a>
-                            </p>
+                                Learn Luganda</a></p>
                             <p><a href="https://www.youtube.com/@LearnLuganda/videos" 
-                                target="_blank">Talk Luganda</a>
-                            </p>
+                                target="_blank">Talk Luganda</a></p>
                             <p><a href="https://www.youtube.com/@mukwanogwabato9351"
                                 target="_blank">Kids</a></p>
                         </div>
