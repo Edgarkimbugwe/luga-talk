@@ -30,6 +30,7 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'first_name', 'last_name', 'email']
 
 
+# Specifies the model and fields used in the form for updating user profiles
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile

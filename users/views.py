@@ -9,6 +9,13 @@ from django.http import HttpResponse
 
 
 def register(request):
+    """
+    View function to handle user registration.
+
+    If request method is POST, processes the registration form.
+    If form is valid, creates a new user account and redirects to login page with success message.
+    If request method is GET, renders the registration form.
+    """
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
@@ -27,6 +34,13 @@ def register(request):
 
 @login_required
 def profile(request):
+    """
+    View function to display and handle user profile update.
+
+    If request method is POST, processes user and profile update forms.
+    If forms are valid, updates the user and profile information and displays success message.
+    If request method is GET, renders the user profile update form.
+    """
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileUpdateForm(
@@ -57,11 +71,17 @@ def profile(request):
 
 @login_required
 def delete_account(request):
+    """
+    View function to handle user account deletion.
+
+    If request method is POST, deletes the user account and associated comments.
+    Redirects to home page after deletion with success message.
+    If request method is GET, renders the confirmation page for account deletion.
+    """
     if request.method == 'POST':
         user = request.user
 
-        # Delete associated comments (example of related model deletion)
-        from luga.models import Comment  # Import Comment model here
+        # Delete associated comments
         Comment.objects.filter(author=user).delete()
 
         # Delete the user account
