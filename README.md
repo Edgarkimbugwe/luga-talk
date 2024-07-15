@@ -379,8 +379,9 @@ For testing details and results, [click here](TESTING.md).
 ### Known bugs
 - [Content Field Expanding Beyond Content Section on Large Screens:](https://github.com/users/Edgarkimbugwe/projects/12/views/1?pane=issue&itemId=70784683) When the screen width exceeds 1800 pixels, the content field expands to the right, beyond the content section, causing layout issues.
 
-Attempts to Fix: Applied a @media (min-width: 1800px) query to set a max-width value for the iframe within the content field, but this approach did not resolve the issue
+Attempts to Fix: Applied a @media (max-width: 1800px) query to set a max-width value for the iframe within the content field, but this approach did not resolve the issue. I intend to vast myself with skills onto this area. 
 
+- When the user uploads a video or adds a youtube videos while creating a blogpost, this video is expanding the webpage to the right, creating undesirable extra width to the blogpost detail of that blog. I admit that this has been a challenge and i need to put some more time into and find relevant information. At the the moment when I tried to read and apply solutions that aimed at working with the iframe within the content field, nothing worked. 
 
 ### Fixed bugs
 - [Unapproved Posts Appearing in Owner's Blog Posts:](https://github.com/users/Edgarkimbugwe/projects/12/views/1?pane=issue&itemId=70779798) Previously, unapproved posts were being listed in the owner's blog posts, although they were not viewable and redirected to a 404 error page. This behavior was potentially confusing for the owner. This issue was resolved, ensuring that only approved posts are displayed in the owner's blog posts section.

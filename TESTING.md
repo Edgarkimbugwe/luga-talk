@@ -7,6 +7,7 @@ This is an overview of the tests conducted on LuGa|Talk website to access perfor
     1. [HTML Validation](#html-validation)
     2. [CSS Validation](#css-validation)
     3. [Python Validation](#python-validation)
+    4. [Javascript Validation](#javascript-validation)
 2. [Accessibility](#accessibility)
 3. [Performance](#performance)
     1. [Desktop Performance](#desktop-performance)
@@ -76,6 +77,15 @@ Note: Under 'View Result' expand the image by clicking onto it to properly view 
 |users/models | One line too long because of URL |![Result](/docs/validation/pep8/users-models.png)| :white_check_mark:
 |users/signals | All clear, no errors found | ![Result](/docs/validation/pep8/users-signals.png)| :white_check_mark:
 |users/views | All clear, no errors found |![Result](/docs/validation/pep8/users-views.png)| :white_check_mark:
+
+### JavaScript Validation 
+
+To validate the Javascrpit files, JS Hint was used. It is a static code analysis tool for JavaScript that helps identify potential errors and coding conventions inconsistencies in your code. It provides warnings based on predefined rules and helps improve code quality and maintainability by enforcing best practices during development.
+
+All files with JavaScript code were tested using JS Hint and none of the files registered any warnings. These files are;
+- blogpostdetail.js
+- comments.js
+- create.js
 
 [Back to the top](#table-of-content)
 
