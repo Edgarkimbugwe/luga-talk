@@ -12,17 +12,17 @@
             <div class="content-section content-section-two">
               <div class="text-center">
                 <h1>Remove Blog Post</h1>
-      <br>
-      <p>
-      Are you sure you want to remove 
-          <strong>"{{ blogpost.title }}"</strong> from your favourite posts?
-      </p>
-      <br>
-      <form method="post">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-danger">Delete</button>
-      <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
-      </form>
+                <br>
+                <p>
+                Are you sure you want to remove 
+                    <strong>"{{ blogpost.title }}"</strong> from your favourite posts?
+                </p>
+                <br>
+                <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="{% url 'user_blogposts' %}" class="btn btn-secondary">Cancel</a>
+                </form>
               </div>
       
             </div>
