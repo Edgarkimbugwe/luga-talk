@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+# Import necessary modules
 from pathlib import Path
 import os
 import dj_database_url
@@ -41,13 +42,13 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'users.apps.UsersConfig',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin',                   # Django administration site
+    'users.apps.UsersConfig',                 # Custom user app
+    'django.contrib.auth',                    # Authentication framework
+    'django.contrib.contenttypes',            # Content type framework
+    'django.contrib.sessions',                # Session framework
+    'django.contrib.messages',                # Messaging framework
+    'django.contrib.staticfiles',             # Managing static files
     'cloudinary_storage',
     'crispy_forms',
     'crispy_bootstrap5',
@@ -56,20 +57,23 @@ INSTALLED_APPS = [
     'luga',
 ]
 
+# Middleware configuration for request/response handling
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.gzip.GZipMiddleware',
+    'django.middleware.security.SecurityMiddleware',           # Security enhancements
+    'whitenoise.middleware.WhiteNoiseMiddleware',              # Static file serving in production
+    'django.contrib.sessions.middleware.SessionMiddleware',    # Session management
+    'django.middleware.common.CommonMiddleware',              # Common middleware
+    'django.middleware.csrf.CsrfViewMiddleware',               # CSRF protection
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  # Authentication handling
+    'django.contrib.messages.middleware.MessageMiddleware',    # Messaging framework
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',  # Clickjacking protection
+    'django.middleware.gzip.GZipMiddleware',                   # GZip compression
 ]
 
+# Root URL configuration
 ROOT_URLCONF = 'lugatalk.urls'
 
+# Template configuration
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -86,26 +90,22 @@ TEMPLATES = [
     },
 ]
 
+# WSGI application configuration
 WSGI_APPLICATION = 'lugatalk.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-# }
-
+# Use dj_database_url to parse the DATABASE_URL environment variable
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
+# List of trusted origins for CSRF protection
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-edgarkimbugwe-lugatalk-j66uhktsk84.ws.codeinstitute-ide.net",
-    "https://https://lugatalk-ab90580d7f17.herokuapp.com/"
+    "https://lugatalk-ab90580d7f17.herokuapp.com/"
 ]
 
 
@@ -113,55 +113,51 @@ CSRF_TRUSTED_ORIGINS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 
-    'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-us'      # Default language code
+TIME_ZONE = 'UTC'             # Default time zone
+USE_I18N = True               # Enable internationalization
+USE_TZ = False                # Disable timezone support
 
-TIME_ZONE = 'UTC'
 
-USE_I18N = True
-
-USE_TZ = False
-
+# Cloudinary configuration for media file storage
 cloudinary.config(
     secure=True
 )
 
+# Summernote text editor theme
 SUMMERNOTE_THEME = 'bs5'
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
+# Static files (CSS, JavaScript, Images) configuration
+STATIC_URL = 'static/'                                 # URL prefix for static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]   # Directory to find static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')     # Directory to store static files
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-MEDIA_URL = '/media/'
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
+# Cloudinary configuration for media files
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')                      # Cloudinary URL from environment variables
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'  # Default storage for media files
+MEDIA_URL = '/media/'                                   # URL prefix for media files
 
 
+# Crispy Forms configuration
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"            # Allowed template pack for Crispy Forms
+CRISPY_TEMPLATE_PACK = 'bootstrap5'                     # Default template pack for Crispy Forms
+
+
+# Default Auto Field setting
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'user_blogposts'
-LOGIN_URL = 'login'
+
+# Login redirection URLs
+LOGIN_REDIRECT_URL = 'user_blogposts'    # URL to redirect after login
+LOGIN_URL = 'login'                      # URL for login page

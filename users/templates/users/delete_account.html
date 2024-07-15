@@ -6,9 +6,11 @@
     <div class="row justify-content-center">
         <div class="col-lg-9">
             <div class="content-section p-4 rounded">
+                <!-- User Profile Section -->
                 <div class="row">
                     <div class="col-md-4">
                         <div class="media">
+                            <!-- Display User Profile Image -->
                             <img class="rounded-circle account-img"
                                 src="{{ user.profile.image.url }}"
                                 alt="profile_image">
@@ -16,25 +18,28 @@
                     </div>
                     <div class="col-md-8">
                         <div class="media-body">
+                            <!-- Display User's Name and Email -->
                             <h2 class="account-heading">{{ user.first_name }} {{ user.last_name }}</h2>
                             <p class="text-secondary">{{ user.email }}</p>                  
                         </div>
                     </div>
                 </div>
                 <br>
-				<form method="POST">
-					{% csrf_token %}
-					<fieldset class="form-group">
-						<legend class="border-bottom mb-4">Confirm Account Deletion</legend>
+
+                <!-- Account Deletion Confirmation Form -->
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Confirm Account Deletion</legend>
                         <br>
-						<p class="text-center">Are you sure you want to delete your account?</p>                        
-					</fieldset>
+                        <p class="text-center">Are you sure you want to delete your account?</p>                        
+                    </fieldset>
                     <br>
-					<div class="form-group text-center">
-						<button class="btn btn-danger" type="submit">Delete Account</button>
-						<a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
-					</div>
-				</form>               
+                    <div class="form-group text-center">
+                        <button class="btn btn-danger" type="submit">Delete Account</button>
+                        <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>               
             </div>
         </div>
     </div>
