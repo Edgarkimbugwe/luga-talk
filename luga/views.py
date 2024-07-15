@@ -13,7 +13,7 @@ from django.views.decorators.cache import cache_page
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-# Create your views here.
+# View for displaying a list of published blog posts
 class PostList(generic.ListView):
     queryset = BlogPost.objects.filter(status=1)
     template_name = "luga/index.html"
@@ -25,6 +25,7 @@ class PostList(generic.ListView):
         return context
 
 
+# View for displaying details of a specific blog post
 def blogpost_detail(request, slug):
     blogpost = get_object_or_404(BlogPost, slug=slug, status=1)
     comments = blogpost.comments.filter(approved=True).order_by("-created_on")
@@ -62,6 +63,8 @@ def blogpost_detail(request, slug):
     })
 
 
+
+# View for editing a comment
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
@@ -88,11 +91,13 @@ def comment_edit(request, slug, comment_id):
     return HttpResponseRedirect(reverse('blogpost_detail', args=[slug]))
 
 
+# View for displaying the index page
 def index(request):
     post_list = BlogPost.objects.select_related('author').all()
     return render(request, 'index.html', {'post_list': post_list})
 
 
+# View for deleting a comment
 def comment_delete(request, slug, comment_id):
     """
     view to delete comment
@@ -112,6 +117,7 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('blogpost_detail', args=[slug]))
 
 
+# View for creating a new blog post
 @login_required
 def create_blogpost(request):
     if request.method == 'POST':
@@ -131,6 +137,7 @@ def create_blogpost(request):
     return render(request, 'luga/create_blogpost.html', {'form': form})
 
 
+# View for displaying the about page
 class AboutView(TemplateView):
     template_name = 'luga/about.html'
     extra_context = {'title': 'About'}
@@ -148,6 +155,7 @@ def user_blogposts(request):
     })
 
 
+# View for liking/unliking a blog post
 @login_required
 def like_blogpost(request, post_id):
     blogpost = get_object_or_404(BlogPost, id=post_id)
@@ -161,6 +169,7 @@ def like_blogpost(request, post_id):
     return redirect('blogpost_detail', slug=blogpost.slug)
 
 
+# View for removing a blog post from favorites
 @login_required
 def remove_favorite(request, post_id):
     blogpost = get_object_or_404(BlogPost, id=post_id)
@@ -175,6 +184,7 @@ def remove_favorite(request, post_id):
         request, 'luga/remove_favorite.html', {'blogpost': blogpost})
 
 
+# View for editing a blog post
 @login_required
 def blogpost_edit(request, slug):
     blogpost = get_object_or_404(BlogPost, slug=slug, author=request.user)
@@ -193,6 +203,7 @@ def blogpost_edit(request, slug):
         'luga/blogpost_edit.html', {'form': form, 'blogpost': blogpost})
 
 
+# View for deleting a blog post
 @login_required
 def blogpost_delete(request, slug):
     blogpost = get_object_or_404(BlogPost, slug=slug, author=request.user)
@@ -204,10 +215,12 @@ def blogpost_delete(request, slug):
         request, 'luga/blogpost_delete.html', {'blogpost': blogpost})
 
 
+# Custom 404 error page view
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
 
 
+# Custom 500 error page view
 def custom_500(request):
     return render(request, '500.html', status=500)
 
